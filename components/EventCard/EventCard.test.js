@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import EventCard from ".";
 
 describe("EventCard", () => {
-  it("displays all props", () => {
+  it("renders date, time, name and teamName of an event", () => {
     const event = {
       name: "Training",
       date: "2022-12-02T18:25:43.511Z",
@@ -18,16 +18,14 @@ describe("EventCard", () => {
 
     render(<EventCard event={event} teamName={teamName} />);
 
-    const date = screen.getByTestId("date");
-    const time = screen.getByTestId("time");
-    const name = screen.getByTestId("name");
-    const team = screen.getByTestId("team");
+    const date = screen.getByText(/dez/i);
+    const time = screen.getByText(/20/i);
+    const name = screen.getByText(/training/i);
+    const team = screen.getByText(/team/i);
 
     expect(date).toHaveTextContent(expectedDate);
     expect(time).toHaveTextContent(expectedTime);
     expect(name).toHaveTextContent(event.name);
     expect(team).toHaveTextContent(teamName);
-
-    expect();
   });
 });

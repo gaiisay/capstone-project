@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
     }
 
-    h1, h2{
+    h1, h2 {
         text-align: center;
         margin-bottom: 1rem;
     }

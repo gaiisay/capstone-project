@@ -3,13 +3,13 @@ import EventCard from ".";
 
 export default {
   title: "Components/Event",
-  component: Event,
+  component: EventCard,
 };
 
 const Template = (args) => <EventCard {...args} />;
 
-export const Event = Template.bind({});
-Event.args = {
+export const DefaultEventCard = Template.bind({});
+DefaultEventCard.args = {
   event: {
     name: "Training",
     date: "2022-12-02",

@@ -7,12 +7,10 @@ function EventCard({ event, teamName }) {
 
   return (
     <Card>
-      <StyledDate data-testid="date" dateTime={event.date}>
-        {eventDate}
-      </StyledDate>
-      <p data-testid="time">{eventTime}</p>
-      <h3 data-testid="name">{event.name}</h3>
-      <p data-testid="team">{teamName}</p>
+      <StyledDate dateTime={event.date}>{eventDate}</StyledDate>
+      <time>{eventTime}</time>
+      <h3>{event.name}</h3>
+      <h4>{teamName}</h4>
     </Card>
   );
 }
@@ -24,7 +22,6 @@ const Card = styled.article`
   margin: 0.5rem;
   display: grid;
   grid-template-columns: 2rem 3fr;
-  grid-template-rows: repeat(3, 1fr);
   align-items: center;
   column-gap: 2rem;
   background-color: #f27507;
