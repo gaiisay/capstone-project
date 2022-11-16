@@ -1,4 +1,6 @@
 import * as NextImage from "next/image";
+import React from "react";
+import GlobalStyles from "../components/GlobalStyles";
 
 const OriginalNextImage = NextImage.default;
 
@@ -16,3 +18,12 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <>
+      <GlobalStyles />
+      <Story />
+    </>
+  ),
+];

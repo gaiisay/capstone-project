@@ -7,10 +7,12 @@ function EventCard({ event, teamName }) {
 
   return (
     <Card>
-      <StyledDate dateTime={event.date}>{eventDate}</StyledDate>
-      <p>{eventTime}</p>
-      <h3>{event.name}</h3>
-      <p>{teamName}</p>
+      <StyledDate data-testid="date" dateTime={event.date}>
+        {eventDate}
+      </StyledDate>
+      <p data-testid="time">{eventTime}</p>
+      <h3 data-testid="name">{event.name}</h3>
+      <p data-testid="team">{teamName}</p>
     </Card>
   );
 }
