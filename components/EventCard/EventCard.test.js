@@ -13,6 +13,9 @@ describe("EventCard", () => {
     };
     const teamName = "your Team";
 
+    const expectedDate = "Fr 02 Dez";
+    const expectedTime = "20:00 - 22:00";
+
     render(<EventCard event={event} teamName={teamName} />);
 
     const date = screen.getByTestId("date");
@@ -20,10 +23,8 @@ describe("EventCard", () => {
     const name = screen.getByTestId("name");
     const team = screen.getByTestId("team");
 
-    expect(date).toHaveTextContent(
-      new Date(event.date).toLocaleDateString("de-DE", { weekday: "short", month: "short", day: "numeric" })
-    );
-    expect(time).toHaveTextContent(event.startTime + " - " + event.endTime);
+    expect(date).toHaveTextContent(expectedDate);
+    expect(time).toHaveTextContent(expectedTime);
     expect(name).toHaveTextContent(event.name);
     expect(team).toHaveTextContent(teamName);
 
