@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import EventCard from "../components/EventCard";
 import { fetcher } from "../helpers/api";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
       <h1>⛹🏽‍♂️ Assist ⛹🏽‍♂️</h1>
       <h2>Deine Veranstaltungen</h2>
       {events.map((event) => (
-        <p>{event.name}</p>
+        <EventCard event={event} teamName="Your Team" />
       ))}
     </>
   );
