@@ -18,7 +18,8 @@ function EventCard({ event, teamName }) {
 }
 
 const Card = styled.article`
-  max-width: 768px;
+  width: 90vw;
+  max-width: 500px;
   padding: 1rem;
   margin: 0.5rem;
   display: grid;
