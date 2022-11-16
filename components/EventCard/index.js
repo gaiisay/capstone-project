@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 function EventCard({ event, teamName }) {
   const options = { weekday: "short", month: "short", day: "2-digit" };
-  const eventDate = new Date(event.date).toLocaleDateString("de-DE", options).replace(/[.,\s]/g, " ");
+  const eventDate = new Date(event.date).toLocaleDateString("de-DE", options).replace(/[.,]/g, "");
   const eventTime = event.startTime + " - " + event.endTime;
 
   return (
