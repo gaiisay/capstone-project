@@ -11,6 +11,11 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
     }
+
+    h1, h2{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 `;
 
 export default GlobalStyles;
