@@ -1,7 +1,14 @@
 import events from "../db.json";
+import { nanoid } from "nanoid";
+
+let allEvents = events;
 
 function getAllEvents() {
-  return events;
+  return allEvents;
 }
 
-export { getAllEvents };
+function createEvent(event) {
+  allEvents.push({ ...event, id: nanoid() });
+}
+
+export { getAllEvents, createEvent };

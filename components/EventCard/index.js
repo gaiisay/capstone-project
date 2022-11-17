@@ -3,7 +3,10 @@ import styled from "styled-components";
 function EventCard({ event, teamName }) {
   const options = { weekday: "short", month: "short", day: "2-digit" };
   const eventDate = new Date(event.date).toLocaleDateString("de-DE", options).replace(/[.,]/g, "");
-  const eventTime = event.startTime + " - " + event.endTime;
+  const eventTime =
+    new Date(event.startTime).toLocaleTimeString("de-DE", { timeStyle: "short" }) +
+    " - " +
+    new Date(event.endTime).toLocaleTimeString("de-DE", { timeStyle: "short" });
 
   return (
     <Card>

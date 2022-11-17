@@ -4,8 +4,8 @@
     "name": "Training",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
     "date": "2022-12-02",
-    "startTime": "20:00",
-    "endTime": "22:00",
+    "startTime": "2022-12-02 20:00",
+    "endTime": "2022-12-02 22:00",
     "location": "Rathausstraße 9, 53819 Neunkirchen-Seelscheid"
   },
   {
@@ -13,8 +13,8 @@
     "name": "Training",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
     "date": "2022-12-04",
-    "startTime": "20:00",
-    "endTime": "22:00",
+    "startTime": "2022-12-04 20:00",
+    "endTime": "2022-12-04 22:00",
     "location": "Rathausstraße 9, 53819 Neunkirchen-Seelscheid"
   },
   {
@@ -22,8 +22,8 @@
     "name": "Training",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
     "date": "2022-12-09",
-    "startTime": "20:00",
-    "endTime": "22:00",
+    "startTime": "2022-12-09 20:00",
+    "endTime": "2022-12-09 22:00",
     "location": "Rathausstraße 9, 53819 Neunkirchen-Seelscheid"
   },
   {
@@ -31,8 +31,8 @@
     "name": "Training",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
     "date": "2022-12-11",
-    "startTime": "20:00",
-    "endTime": "22:00",
+    "startTime": "2022-12-11 20:00",
+    "endTime": "2022-12-11 22:00",
     "location": "Rathausstraße 9, 53819 Neunkirchen-Seelscheid"
   }
 ]
