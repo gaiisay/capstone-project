@@ -1,4 +1,6 @@
+import Link from "next/link";
 import useSWR from "swr";
+import Button from "../components/Button";
 import EventCard from "../components/EventCard";
 import { fetcher } from "../helpers/api";
 
@@ -18,6 +20,10 @@ export default function Home() {
       {sortedEvents.map((event) => (
         <EventCard key={event.id} event={event} teamName="Your Team" />
       ))}
+
+      <Link href="/events/add">
+        <Button type="button" variant="add"></Button>
+      </Link>
     </main>
   );
 }
