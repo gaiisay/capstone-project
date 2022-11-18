@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import css from "styled-jsx/css";
+import { css } from "styled-components";
 import Svg from "../Svg";
 
 function Button({ type, variant, children }) {
   return (
     <StyledButton type={type} variant={variant}>
-      <Svg variant={variant}></Svg>
+      <Svg variant={variant} />
       {children}
     </StyledButton>
   );
@@ -36,6 +36,17 @@ const StyledButton = styled.button`
       padding: 0.5rem 1rem;
       gap: 8px;
       border-radius: 100px;
+    `}
+
+  ${({ variant }) =>
+    variant === "back" &&
+    css`
+      position: absolute;
+      padding: 0.8rem;
+      top: 5px;
+      left: 5px;
+      background-color: transparent;
+      border: none;
     `}
 `;
 

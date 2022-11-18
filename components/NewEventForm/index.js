@@ -50,7 +50,6 @@ function NewEventForm({ addEvent }) {
           setStartTime(newTime);
         }}
         renderInput={(params) => <TextField {...params} />}
-        required
       />
       <TimePicker
         label="End Time *"
@@ -59,7 +58,6 @@ function NewEventForm({ addEvent }) {
           setEndTime(newTime);
         }}
         renderInput={(params) => <TextField {...params} />}
-        required
       />
 
       <label htmlFor="input-location">Location</label>

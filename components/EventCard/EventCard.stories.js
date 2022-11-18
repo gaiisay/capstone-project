@@ -13,8 +13,8 @@ DefaultEventCard.args = {
   event: {
     name: "Training",
     date: "2022-12-02",
-    startTime: "20:00",
-    endTime: "22:00",
+    startTime: "2022-12-02 20:00",
+    endTime: "2022-12-02 22:00",
   },
   teamName: "test",
 };
