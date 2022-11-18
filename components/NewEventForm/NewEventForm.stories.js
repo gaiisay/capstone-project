@@ -3,6 +3,7 @@ import NewEventForm from ".";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { de } from "date-fns/locale";
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Components/Form",
@@ -17,5 +18,5 @@ const Template = (args) => (
 
 export const BareForm = Template.bind({});
 BareForm.args = {
-  addEvent: console.log(),
+  addEvent: action("form submitted"),
 };
