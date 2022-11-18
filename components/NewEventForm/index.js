@@ -2,18 +2,30 @@ import styled from "styled-components";
 import TextField from "@mui/material/TextField";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
-import { useRouter } from "next/router";
 import { useState } from "react";
 
 function NewEventForm({ addEvent }) {
-  const [date, setDate] = useState(new Date());
-  const [startTime, setStartTime] = useState(new Date());
-  const [endTime, setEndTime] = useState(new Date());
+  const [date, setDate] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
 
-  const router = useRouter();
+  const [dateEmpty, setDateEmpty] = useState(false);
+  const [startTimeEmpty, setStartTimeEmpty] = useState(false);
+  const [endTimeEmpty, setEndTimeEmpty] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    if (!date) {
+      setDateEmpty(true);
+      return;
+    } else if (!startTime) {
+      setStartTimeEmpty(true);
+      return;
+    } else if (!endTime) {
+      setEndTimeEmpty(true);
+      return;
+    }
 
     const formData = new FormData(event.target);
     formData.append("date", date);
@@ -22,7 +34,6 @@ function NewEventForm({ addEvent }) {
     const data = Object.fromEntries(formData);
 
     addEvent(data);
-    router.push("/");
   }
 
   return (
@@ -34,30 +45,53 @@ function NewEventForm({ addEvent }) {
       <textarea id="input-description" name="description" rows="5" />
 
       <DatePicker
-        required
-        label="Date *"
+        label="Date"
         value={date}
+        disablePast
+        onAccept={() => setDateEmpty(false)}
         onChange={(newDate) => {
-          console.log(newDate);
           setDate(newDate);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            required
+            error={dateEmpty ? true : false}
+            helperText={dateEmpty ? "please insert a date" : ""}
+          />
+        )}
       />
       <TimePicker
-        label="Start Time *"
+        label="Start Time"
         value={startTime}
+        onAccept={() => setStartTimeEmpty(false)}
         onChange={(newTime) => {
           setStartTime(newTime);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            required
+            error={startTimeEmpty ? true : false}
+            helperText={startTimeEmpty ? "please insert a date" : ""}
+          />
+        )}
       />
       <TimePicker
-        label="End Time *"
+        label="End Time"
         value={endTime}
+        onAccept={() => setEndTimeEmpty(false)}
         onChange={(newTime) => {
           setEndTime(newTime);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            required
+            error={endTimeEmpty ? true : false}
+            helperText={endTimeEmpty ? "please insert a date" : ""}
+          />
+        )}
       />
 
       <label htmlFor="input-location">Location</label>

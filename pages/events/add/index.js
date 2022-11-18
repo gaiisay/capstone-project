@@ -8,11 +8,14 @@ import Button from "../../../components/Button";
 import Link from "next/link";
 
 function AddEvent({}) {
+  const router = useRouter();
+
   async function addEvent(event) {
-    const response = await fetch("/api/events", {
+    await fetch("/api/events", {
       method: "POST",
       body: JSON.stringify(event),
     });
+    router.push("/");
   }
 
   return (

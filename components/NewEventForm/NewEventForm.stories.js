@@ -1,6 +1,5 @@
 import React from "react";
 import NewEventForm from ".";
-import { MemoryRouterProvider } from "next-router-mock";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { de } from "date-fns/locale";
@@ -11,11 +10,9 @@ export default {
 };
 
 const Template = (args) => (
-  <MemoryRouterProvider>
-    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
-      <NewEventForm {...args} />
-    </LocalizationProvider>
-  </MemoryRouterProvider>
+  <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
+    <NewEventForm {...args} />
+  </LocalizationProvider>
 );
 
 export const BareForm = Template.bind({});
