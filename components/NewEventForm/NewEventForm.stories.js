@@ -17,5 +17,5 @@ const Template = (args) => (
 
 export const BareForm = Template.bind({});
 BareForm.args = {
-  addEvent: console.log,
+  addEvent: console.log(),
 };
