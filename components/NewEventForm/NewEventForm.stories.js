@@ -6,7 +6,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { de } from "date-fns/locale";
 
 export default {
-  title: "Components/NewEventForm",
+  title: "Components/Form",
   component: NewEventForm,
 };
 
