@@ -73,7 +73,7 @@ function NewEventForm({ addEvent }) {
             {...params}
             required
             error={startTimeEmpty ? true : false}
-            helperText={startTimeEmpty ? "please insert a date" : ""}
+            helperText={startTimeEmpty ? "please insert a start time" : ""}
           />
         )}
       />
@@ -89,7 +89,7 @@ function NewEventForm({ addEvent }) {
             {...params}
             required
             error={endTimeEmpty ? true : false}
-            helperText={endTimeEmpty ? "please insert a date" : ""}
+            helperText={endTimeEmpty ? "please insert a end time" : ""}
           />
         )}
       />
