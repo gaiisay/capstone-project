@@ -61,6 +61,7 @@ function NewEventForm({ addEvent }) {
           />
         )}
       />
+
       <TimePicker
         label="Start Time"
         value={startTime}
@@ -77,6 +78,7 @@ function NewEventForm({ addEvent }) {
           />
         )}
       />
+
       <TimePicker
         label="End Time"
         value={endTime}
