@@ -1,6 +1,4 @@
-import Link from "next/link";
 import useSWR from "swr";
-import Button from "../components/Button";
 import EventCard from "../components/EventCard";
 import StyledLink from "../components/StyledLink";
 import Svg from "../components/Svg";
@@ -16,16 +14,14 @@ export default function Home() {
   const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
-    <main>
-      <h1>⛹🏽‍♂️ Assist ⛹🏽‍♂️</h1>
-      <h2>Deine Veranstaltungen</h2>
+    <>
       {sortedEvents.map((event) => (
-        <EventCard key={event.id} event={event} teamName="Your Team" />
+        <EventCard key={event.id} event={event} />
       ))}
 
       <StyledLink href="/events/add" variant="add">
         <Svg variant="add" />
       </StyledLink>
-    </main>
+    </>
   );
 }

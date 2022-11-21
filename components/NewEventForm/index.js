@@ -16,13 +16,20 @@ function NewEventForm({ addEvent }) {
   function handleSubmit(event) {
     event.preventDefault();
 
+    const nameInput = event.target.elements.name;
+
+    if (nameInput.value.trim() === "") {
+      nameInput.reportValidity();
+      return;
+    }
+
     if (!date) {
       setDateEmpty(true);
       return;
     } else if (!startTime) {
       setStartTimeEmpty(true);
       return;
-    } else if (!endTime) {
+    } else if (!endTime || startTime > endTime) {
       setEndTimeEmpty(true);
       return;
     }
@@ -35,11 +42,17 @@ function NewEventForm({ addEvent }) {
 
     addEvent(data);
   }
-
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="input-event-name">Event Name *</label>
-      <input type="text" id="input-event-name" name="name" maxLength={50} required />
+      <input
+        type="text"
+        id="input-event-name"
+        name="name"
+        pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
+        maxLength={50}
+        required
+      />
 
       <label htmlFor="input-description">Description</label>
       <textarea id="input-description" name="description" rows="5" />
@@ -57,7 +70,7 @@ function NewEventForm({ addEvent }) {
             {...params}
             required
             error={dateEmpty ? true : false}
-            helperText={dateEmpty ? "please insert a date" : ""}
+            helperText={dateEmpty ? "please insert a valid date" : ""}
           />
         )}
       />
@@ -74,7 +87,7 @@ function NewEventForm({ addEvent }) {
             {...params}
             required
             error={startTimeEmpty ? true : false}
-            helperText={startTimeEmpty ? "please insert a start time" : ""}
+            helperText={startTimeEmpty ? "please insert a valid start time" : ""}
           />
         )}
       />
@@ -86,12 +99,13 @@ function NewEventForm({ addEvent }) {
         onChange={(newTime) => {
           setEndTime(newTime);
         }}
+        onAcc
         renderInput={(params) => (
           <TextField
             {...params}
             required
             error={endTimeEmpty ? true : false}
-            helperText={endTimeEmpty ? "please insert a end time" : ""}
+            helperText={endTimeEmpty ? "please insert a valid end time" : ""}
           />
         )}
       />

@@ -26,6 +26,13 @@ async function getAllEvents() {
   return events;
 }
 
+async function getEventById(id) {
+  await connectToDatabase();
+
+  const event = Event.findOne({ id }, { _id: false, __v: false });
+  return event;
+}
+
 async function createEvent(event) {
   await connectToDatabase();
 
@@ -41,4 +48,4 @@ async function createEvent(event) {
   };
 }
 
-export { getAllEvents, createEvent };
+export { getAllEvents, createEvent, getEventById };
