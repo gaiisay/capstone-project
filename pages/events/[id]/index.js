@@ -26,7 +26,7 @@ function EventDetails() {
         <time>{eventDate} </time>
         <time>{eventTime}</time>
       </p>
-      <adress>Location: {event.location}</adress>
+      <p>Location: {event.location}</p>
       <p>Description: {event.description}</p>
     </Wrapper>
   );
@@ -37,6 +37,7 @@ const Wrapper = styled.div`
   align-self: flex-start;
   margin: 1rem 2rem;
   display: grid;
+  gap: 5px;
 `;
 
 export default EventDetails;

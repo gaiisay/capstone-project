@@ -10,7 +10,7 @@ function Header() {
   if (pathname === "/") {
     return (
       <StyledHeader>
-        <Image src={logo} width={50} />
+        <Image src={logo} width={50} alt="Logo" />
         <StyledH1>Deine Veranstaltungen</StyledH1>
       </StyledHeader>
     );

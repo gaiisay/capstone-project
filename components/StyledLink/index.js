@@ -21,7 +21,6 @@ const StyledLink = styled(Link)`
   ${({ variant }) =>
     variant === "back" &&
     css`
-      padding: 0.8rem;
       background-color: transparent;
       border: none;
     `}
