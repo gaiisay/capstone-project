@@ -27,7 +27,7 @@ function Header() {
     );
   }
 
-  if (pathname.includes("/events/")) {
+  if (pathname.startsWith("/events/")) {
     return (
       <StyledHeader>
         <StyledLink href="/" variant="back">
