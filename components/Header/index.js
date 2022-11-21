@@ -44,7 +44,7 @@ function Header() {
 const StyledHeader = styled.header`
   padding: 0.5rem 1rem;
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   align-items: center;
 `;
 const StyledH1 = styled.h1`
