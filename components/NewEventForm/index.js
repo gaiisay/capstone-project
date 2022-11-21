@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
 import { useState } from "react";
-import { validate } from "schema-utils";
 
 function NewEventForm({ addEvent }) {
   const [date, setDate] = useState(null);
