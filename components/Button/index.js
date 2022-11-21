@@ -19,34 +19,11 @@ const StyledButton = styled.button`
   max-width: fit-content;
 
   ${({ variant }) =>
-    variant === "add" &&
-    css`
-      position: fixed;
-      padding: 0.8rem;
-      bottom: 5rem;
-      right: 2rem;
-
-      box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
-      border-radius: 16px;
-    `}
-
-  ${({ variant }) =>
     variant === "create" &&
     css`
       padding: 0.5rem 1rem;
       gap: 8px;
       border-radius: 100px;
-    `}
-
-  ${({ variant }) =>
-    variant === "back" &&
-    css`
-      position: absolute;
-      padding: 0.8rem;
-      top: 5px;
-      left: 5px;
-      background-color: transparent;
-      border: none;
     `}
 `;
 

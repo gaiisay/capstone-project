@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import NewEventForm from "../../../components/NewEventForm";
 import Button from "../../../components/Button";
 import Link from "next/link";
+import StyledLink from "../../../components/StyledLink";
+import Svg from "../../../components/Svg";
 
 function AddEvent({}) {
   const router = useRouter();
@@ -20,9 +22,9 @@ function AddEvent({}) {
 
   return (
     <main>
-      <Link href="/">
-        <Button variant="back" />
-      </Link>
+      <StyledLink href="/" variant="back">
+        <Svg variant="back" />
+      </StyledLink>
       <h1>New Event</h1>
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
         <NewEventForm addEvent={addEvent} />

@@ -11,15 +11,18 @@ jest.mock("next/router", () => require("next-router-mock"));
 
 describe("Button", () => {
   it("returns all inputs", async () => {
+    const todayShort = new Date().toLocaleDateString("de-DE");
+    const todayLong = new Date().toDateString();
+
     const addEvent = jest.fn();
     const expectedName = "Test Name";
     const expectedDescription = "Description";
-    const inputDate = "17.11.2022";
-    const expectedDate = "Thu Nov 17 2022 00:00:00 GMT+0100 (Central European Standard Time)";
+    const inputDate = todayShort;
+    const expectedDate = todayLong + " 00:00:00 GMT+0100 (Central European Standard Time)";
     const inputStartTime = "20:00";
-    const expectedStartTime = "Fri Nov 18 2022 20:00:00 GMT+0100 (Central European Standard Time)";
+    const expectedStartTime = todayLong + " 20:00:00 GMT+0100 (Central European Standard Time)";
     const inputEndTime = "22:00";
-    const expectedEndTime = "Fri Nov 18 2022 22:00:00 GMT+0100 (Central European Standard Time)";
+    const expectedEndTime = todayLong + " 22:00:00 GMT+0100 (Central European Standard Time)";
     const expectedLocation = "Home";
     const expectedSubmitData = {
       name: expectedName,
