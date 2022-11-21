@@ -19,16 +19,22 @@ function EventDetails() {
   const eventDate = formatDate(event.date);
   const eventTime = formatTime(event.startTime, event.endTime);
   return (
-    <Wrapper>
-      <h2>{event.name}</h2>
-      <h3>Your team</h3>
-      <p>
-        <time>{eventDate} </time>
-        <time>{eventTime}</time>
-      </p>
-      <p>Location: {event.location}</p>
-      <p>Description: {event.description}</p>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <h2>{event.name}</h2>
+        <h3>Your team</h3>
+        <p>
+          <time>{eventDate} </time>
+          <time>{eventTime}</time>
+        </p>
+        <p>Location: {event.location}</p>
+        <p>Description: {event.description}</p>
+      </Wrapper>
+
+      <StyledLink href="" variant="fab">
+        <Svg variant="edit" />
+      </StyledLink>
+    </>
   );
 }
 

@@ -6,7 +6,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 
   ${({ variant }) =>
-    variant === "add" &&
+    variant === "fab" &&
     css`
       position: fixed;
       padding: 0.8rem;

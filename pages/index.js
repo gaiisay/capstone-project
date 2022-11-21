@@ -19,7 +19,7 @@ export default function Home() {
         <EventCard key={event.id} event={event} />
       ))}
 
-      <StyledLink href="/events/add" variant="add">
+      <StyledLink href="/events/add" variant="fab">
         <Svg variant="add" />
       </StyledLink>
     </>
