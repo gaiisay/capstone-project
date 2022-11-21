@@ -22,10 +22,6 @@ function AddEvent({}) {
 
   return (
     <main>
-      <StyledLink href="/" variant="back">
-        <Svg variant="back" />
-      </StyledLink>
-      <h1>New Event</h1>
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
         <NewEventForm addEvent={addEvent} />
       </LocalizationProvider>
