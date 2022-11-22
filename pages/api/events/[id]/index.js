@@ -10,7 +10,7 @@ async function handler(req, res) {
     const updatedEvent = await updateEventById(id, event);
     res.status(200).json(updatedEvent);
   } else {
-    res.status(405).setHeader("Allow", ["GET"]).send();
+    res.status(405).setHeader("Allow", ["GET", "PATCH"]).send();
   }
 }
 
