@@ -41,6 +41,15 @@ async function updateEventById(id, event) {
   return updatedEvent;
 }
 
+async function deleteEventById(id) {
+  connectToDatabase();
+
+  const event = getEventById(id);
+  await Event.deleteOne({ id });
+
+  return event;
+}
+
 async function createEvent(event) {
   await connectToDatabase();
 
@@ -56,4 +65,4 @@ async function createEvent(event) {
   };
 }
 
-export { getAllEvents, createEvent, getEventById, updateEventById };
+export { getAllEvents, createEvent, getEventById, updateEventById, deleteEventById };
