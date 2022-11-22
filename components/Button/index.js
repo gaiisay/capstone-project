@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import Svg from "../Svg";
 
-function Button({ type, variant, children, onClick }) {
+function Button({ type, variant, children, onClick, role }) {
   return (
-    <StyledButton type={type} variant={variant} onClick={onClick}>
+    <StyledButton type={type} variant={variant} onClick={onClick} role={role}>
       {variant !== "standard" ? <Svg variant={variant} /> : null}
       {children}
     </StyledButton>

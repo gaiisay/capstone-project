@@ -10,6 +10,7 @@ function DeleteEvent({ deleteEvent }) {
       <Button
         type="button"
         variant="delete"
+        role="deleteButton"
         onClick={() => {
           setIsOpen((isOpen) => !isOpen);
         }}
