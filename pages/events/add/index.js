@@ -17,7 +17,7 @@ function AddEvent({}) {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
-      <EventForm sendEvent={addEvent} />
+      <EventForm sendEvent={addEvent} buttonContent="Create" />
     </LocalizationProvider>
   );
 }

@@ -4,10 +4,10 @@ import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
 import { useState } from "react";
 
-function EventForm({ sendEvent }) {
-  const [date, setDate] = useState(null);
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
+function EventForm({ defaultEvent, sendEvent, buttonContent }) {
+  const [date, setDate] = useState(defaultEvent?.date ?? null);
+  const [startTime, setStartTime] = useState(defaultEvent?.startTime ?? null);
+  const [endTime, setEndTime] = useState(defaultEvent?.endTime ?? null);
 
   const [dateEmpty, setDateEmpty] = useState(false);
   const [startTimeEmpty, setStartTimeEmpty] = useState(false);
@@ -50,12 +50,13 @@ function EventForm({ sendEvent }) {
         id="input-event-name"
         name="name"
         pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
+        defaultValue={defaultEvent?.name}
         maxLength={50}
         required
       />
 
       <label htmlFor="input-description">Description</label>
-      <textarea id="input-description" name="description" rows="5" />
+      <textarea id="input-description" name="description" rows="5" defaultValue={defaultEvent?.description} />
 
       <DatePicker
         label="Date"
@@ -111,10 +112,10 @@ function EventForm({ sendEvent }) {
       />
 
       <label htmlFor="input-location">Location</label>
-      <input type="text" id="input-location" name="location" />
+      <input type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
 
       <Button type="submit" variant="create">
-        Create
+        {buttonContent}
       </Button>
     </StyledForm>
   );
