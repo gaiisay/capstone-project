@@ -4,7 +4,7 @@ import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
 import { useState } from "react";
 
-function EventForm({ addEvent }) {
+function EventForm({ sendEvent }) {
   const [date, setDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -40,7 +40,7 @@ function EventForm({ addEvent }) {
     formData.append("endTime", endTime);
     const data = Object.fromEntries(formData);
 
-    addEvent(data);
+    sendEvent(data);
   }
   return (
     <StyledForm onSubmit={handleSubmit}>

@@ -1,13 +1,8 @@
 import { de } from "date-fns/locale";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { useState } from "react";
 import { useRouter } from "next/router";
-import NewEventForm from "../../../components/EventForm";
-import Button from "../../../components/Button";
-import Link from "next/link";
-import StyledLink from "../../../components/StyledLink";
-import Svg from "../../../components/Svg";
+import EventForm from "../../../components/EventForm";
 
 function AddEvent({}) {
   const router = useRouter();
@@ -21,11 +16,9 @@ function AddEvent({}) {
   }
 
   return (
-    <main>
-      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
-        <NewEventForm addEvent={addEvent} />
-      </LocalizationProvider>
-    </main>
+    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
+      <EventForm sendEvent={addEvent} />
+    </LocalizationProvider>
   );
 }
 

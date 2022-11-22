@@ -33,6 +33,14 @@ async function getEventById(id) {
   return event;
 }
 
+async function updateEventById(id, event) {
+  await connectToDatabase();
+
+  await Event.updateOne({ id }, event);
+  const updatedEvent = await getEventById(id);
+  return updatedEvent;
+}
+
 async function createEvent(event) {
   await connectToDatabase();
 
@@ -48,4 +56,4 @@ async function createEvent(event) {
   };
 }
 
-export { getAllEvents, createEvent, getEventById };
+export { getAllEvents, createEvent, getEventById, updateEventById };

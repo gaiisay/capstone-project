@@ -20,3 +20,8 @@ export const BareForm = Template.bind({});
 BareForm.args = {
   addEvent: action("form submitted"),
 };
+
+/* export const BareForm = Template.bind({});
+BareForm.args = {
+  addEvent: action("form submitted"),
+}; */
