@@ -5,7 +5,7 @@ import Svg from "../Svg";
 function Button({ type, variant, children, onClick }) {
   return (
     <StyledButton type={type} variant={variant} onClick={onClick}>
-      <Svg variant={variant} />
+      {variant !== "standard" ? <Svg variant={variant} /> : null}
       {children}
     </StyledButton>
   );
@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   max-width: fit-content;
 
   ${({ variant }) =>
-    variant === "create" &&
+    variant === "submit" &&
     css`
       padding: 0.5rem 1rem;
       gap: 8px;
@@ -34,6 +34,17 @@ const StyledButton = styled.button`
       right: 2rem;
       background-color: transparent;
       border: none;
+    `}
+
+  ${({ variant }) =>
+    variant === "standard" &&
+    css`
+      min-width: 50%;
+      padding: 0.5rem 1rem;
+      background: ${({ children }) => (children.includes("NO") ? "red" : "green")};
+
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      border-radius: 100px;
     `}
 `;
 

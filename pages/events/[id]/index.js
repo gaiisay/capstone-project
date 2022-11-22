@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
 import Button from "../../../components/Button";
+import DeleteEvent from "../../../components/DeleteEvent";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
 import { fetcher } from "../../../helpers/api";
@@ -32,7 +33,7 @@ function EventDetails() {
 
   return (
     <>
-      <Button type="button" variant="delete" onClick={deleteEvent} />
+      <DeleteEvent deleteEvent={deleteEvent} />
       <Wrapper>
         <h2>{event.name}</h2>
         <h3>Your team</h3>

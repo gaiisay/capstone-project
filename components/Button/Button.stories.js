@@ -11,6 +11,6 @@ const Template = (args) => <Button {...args} />;
 export const SubmitButton = Template.bind({});
 SubmitButton.args = {
   type: "submit",
-  variant: "create",
+  variant: "standard",
   children: "Create",
 };

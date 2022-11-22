@@ -107,7 +107,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
       <label htmlFor="input-location">Location</label>
       <input type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
 
-      <Button type="submit" variant="create">
+      <Button type="submit" variant="submit">
         {buttonContent}
       </Button>
     </StyledForm>

@@ -29,7 +29,7 @@ async function getAllEvents() {
 async function getEventById(id) {
   await connectToDatabase();
 
-  const event = Event.findOne({ id }, { _id: false, __v: false });
+  const event = await Event.findOne({ id }, { _id: false, __v: false });
   return event;
 }
 
@@ -44,7 +44,7 @@ async function updateEventById(id, event) {
 async function deleteEventById(id) {
   connectToDatabase();
 
-  const event = getEventById(id);
+  const event = await getEventById(id);
   await Event.deleteOne({ id });
 
   return event;
