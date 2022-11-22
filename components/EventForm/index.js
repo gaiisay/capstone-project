@@ -4,7 +4,7 @@ import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
 import { useState } from "react";
 
-function NewEventForm({ addEvent }) {
+function EventForm({ addEvent }) {
   const [date, setDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -131,4 +131,4 @@ const StyledForm = styled.form`
   }
 `;
 
-export default NewEventForm;
+export default EventForm;

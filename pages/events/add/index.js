@@ -3,7 +3,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import NewEventForm from "../../../components/NewEventForm";
+import NewEventForm from "../../../components/EventForm";
 import Button from "../../../components/Button";
 import Link from "next/link";
 import StyledLink from "../../../components/StyledLink";

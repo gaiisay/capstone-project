@@ -7,7 +7,7 @@ import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Components/Form",
-  component: NewEventForm,
+  component: EventForm,
 };
 
 const Template = (args) => (
