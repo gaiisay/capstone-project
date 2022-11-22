@@ -13,7 +13,7 @@ function Header() {
     return (
       <StyledHeader>
         <Image src={logo} width={50} alt="Logo" />
-        <StyledH1>Deine Veranstaltungen</StyledH1>
+        <StyledH1>Your Events</StyledH1>
       </StyledHeader>
     );
   }

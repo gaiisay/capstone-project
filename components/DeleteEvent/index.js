@@ -16,6 +16,7 @@ function DeleteEvent({ deleteEvent }) {
       />
       {isOpen && (
         <Modal>
+          <h2>Are you sure?</h2>
           <Button type="button" variant="standard" onClick={deleteEvent}>
             YES
           </Button>
