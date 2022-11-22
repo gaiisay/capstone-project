@@ -8,8 +8,8 @@ export default {
 
 const Template = (args) => <Button {...args} />;
 
-export const CreateButton = Template.bind({});
-CreateButton.args = {
+export const SubmitButton = Template.bind({});
+SubmitButton.args = {
   type: "submit",
   variant: "create",
   children: "Create",

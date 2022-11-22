@@ -7,6 +7,8 @@ import logo from "../../public/logo.png";
 
 function Header() {
   const { pathname } = useRouter();
+  const { id } = useRouter().query;
+
   if (pathname === "/") {
     return (
       <StyledHeader>
@@ -16,24 +18,15 @@ function Header() {
     );
   }
 
-  if (pathname === "/events/add") {
-    return (
-      <StyledHeader>
-        <StyledLink href="/" variant="back">
-          <Svg variant="back" />
-        </StyledLink>
-        <StyledH1>Create Event</StyledH1>
-      </StyledHeader>
-    );
-  }
-
   if (pathname.startsWith("/events/")) {
     return (
       <StyledHeader>
-        <StyledLink href="/" variant="back">
+        <StyledLink href={pathname.includes("edit") ? `/events/${id}` : "/"} variant="back">
           <Svg variant="back" />
         </StyledLink>
-        <StyledH1>Event Details</StyledH1>
+        <StyledH1>
+          {pathname.includes("edit") ? "Edit Event" : pathname.includes("add") ? "Create Event" : "Event Details"}
+        </StyledH1>
       </StyledHeader>
     );
   }

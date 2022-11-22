@@ -6,7 +6,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 
   ${({ variant }) =>
-    variant === "add" &&
+    variant === "fab" &&
     css`
       position: fixed;
       padding: 0.8rem;
@@ -23,22 +23,6 @@ const StyledLink = styled(Link)`
     css`
       background-color: transparent;
       border: none;
-    `}
-
-  ${({ variant }) =>
-    variant === "card" &&
-    css`
-      width: 90vw;
-      max-width: 500px;
-      padding: 1rem;
-      margin: 0.5rem;
-      display: grid;
-      grid-template-columns: 2rem 3fr;
-      align-items: center;
-      column-gap: 2rem;
-      background-color: #f27507;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
     `}
 `;
 

@@ -14,7 +14,7 @@ describe("Button", () => {
     const todayShort = new Date().toLocaleDateString("de-DE");
     const todayLong = new Date().toDateString();
 
-    const addEvent = jest.fn();
+    const sendEvent = jest.fn();
     const expectedName = "Test Name";
     const expectedDescription = "Description";
     const inputDate = todayShort;
@@ -35,7 +35,7 @@ describe("Button", () => {
 
     render(
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
-        <NewEventForm addEvent={addEvent} />
+        <NewEventForm sendEvent={sendEvent} buttonContent="Create" />
       </LocalizationProvider>
     );
 
@@ -68,8 +68,8 @@ describe("Button", () => {
     expect(startTimeInput).toHaveValue(inputStartTime);
     expect(endTimeInput).toHaveValue(inputEndTime);
     expect(locationInput).toHaveValue(expectedLocation);
-    expect(addEvent).toHaveBeenCalledTimes(1);
-    expect(addEvent).toBeCalledWith(expectedSubmitData);
+    expect(sendEvent).toHaveBeenCalledTimes(1);
+    expect(sendEvent).toBeCalledWith(expectedSubmitData);
   });
 
   it("can't submit without an event name", async () => {
@@ -77,7 +77,7 @@ describe("Button", () => {
 
     render(
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
-        <NewEventForm addEvent={addEvent} />
+        <NewEventForm addEvent={addEvent} buttonContent="Create" />
       </LocalizationProvider>
     );
 
@@ -86,5 +86,36 @@ describe("Button", () => {
     await userEvent.click(submitButton);
 
     expect(addEvent).toHaveBeenCalledTimes(0);
+  });
+
+  it("should be prefilled if a defaultEvent is passed", async () => {
+    const expectedEvent = {
+      id: "c830d24f-2c14-4089-acca-e8ff639552c1",
+      name: "Training",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec o…",
+      date: "2022-12-02",
+      startTime: "2022-12-02 20:00",
+      endTime: "2022-12-02 22:00",
+      location: "Rathausstraße 9, 53819 Neunkirchen-Seelscheid",
+    };
+    render(
+      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
+        <NewEventForm defaultEvent={expectedEvent} />
+      </LocalizationProvider>
+    );
+
+    const eventNameInput = screen.getByLabelText(/name/i);
+    const descriptionInput = screen.getByLabelText(/description/i);
+    const dateInput = screen.getByLabelText(/date \*/i);
+    const startTimeInput = screen.getByLabelText(/start/i);
+    const endTimeInput = screen.getByLabelText(/end/i);
+    const locationInput = screen.getByLabelText(/location/i);
+
+    expect(eventNameInput).toHaveValue(expectedEvent.name);
+    expect(descriptionInput).toHaveValue(expectedEvent.description);
+    expect(dateInput).toHaveValue("02.12.2022");
+    expect(startTimeInput).toHaveValue("20:00");
+    expect(endTimeInput).toHaveValue("22:00");
+    expect(locationInput).toHaveValue(expectedEvent.location);
   });
 });
