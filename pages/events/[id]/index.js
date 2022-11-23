@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
+import Button from "../../../components/Button";
+import DeleteEvent from "../../../components/DeleteEvent";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
 import { fetcher } from "../../../helpers/api";
@@ -21,8 +23,17 @@ function EventDetails() {
   const eventLocation = !event.location ? "As usual" : event.location;
   const eventDescription = !event.description ? "Let's goooo" : event.description;
 
+  async function deleteEvent() {
+    await fetch(`/api/events/${id}`, {
+      method: "DELETE",
+    });
+
+    router.push("/");
+  }
+
   return (
     <>
+      <DeleteEvent deleteEvent={deleteEvent} />
       <Wrapper>
         <h2>{event.name}</h2>
         <h3>Your team</h3>

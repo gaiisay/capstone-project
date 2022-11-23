@@ -1,4 +1,4 @@
-import { getEventById, updateEventById } from "../../../../helpers/db";
+import { deleteEventById, getEventById, updateEventById } from "../../../../helpers/db";
 
 async function handler(req, res) {
   const { id } = req.query;
@@ -9,8 +9,11 @@ async function handler(req, res) {
     const event = JSON.parse(req.body);
     const updatedEvent = await updateEventById(id, event);
     res.status(200).json(updatedEvent);
+  } else if (req.method === "DELETE") {
+    const event = await deleteEventById(id);
+    res.status(200).json(event);
   } else {
-    res.status(405).setHeader("Allow", ["GET", "PATCH"]).send();
+    res.status(405).setHeader("Allow", ["GET", "PATCH", "DELETE"]).send();
   }
 }
 

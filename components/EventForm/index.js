@@ -16,13 +16,6 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const nameInput = event.target.elements.name;
-
-    if (nameInput.value.trim() === "") {
-      nameInput.reportValidity();
-      return;
-    }
-
     if (!date) {
       setDateEmpty(true);
       return;
@@ -49,7 +42,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
         type="text"
         id="input-event-name"
         name="name"
-        pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
+        pattern=".*[\S]+.*"
         defaultValue={defaultEvent?.name}
         maxLength={50}
         required
@@ -114,7 +107,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
       <label htmlFor="input-location">Location</label>
       <input type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
 
-      <Button type="submit" variant="create">
+      <Button type="submit" variant="submit">
         {buttonContent}
       </Button>
     </StyledForm>

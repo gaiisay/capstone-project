@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import Svg from "../Svg";
 
-function Button({ type, variant, children }) {
+function Button({ type, variant, children, onClick, role }) {
   return (
-    <StyledButton type={type} variant={variant}>
-      <Svg variant={variant} />
+    <StyledButton type={type} variant={variant} onClick={onClick} role={role}>
+      {variant !== "standard" ? <Svg variant={variant} /> : null}
       {children}
     </StyledButton>
   );
@@ -19,10 +19,31 @@ const StyledButton = styled.button`
   max-width: fit-content;
 
   ${({ variant }) =>
-    variant === "create" &&
+    variant === "submit" &&
     css`
       padding: 0.5rem 1rem;
       gap: 8px;
+      border-radius: 100px;
+    `}
+
+  ${({ variant }) =>
+    variant === "delete" &&
+    css`
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      background-color: transparent;
+      border: none;
+    `}
+
+  ${({ variant }) =>
+    variant === "standard" &&
+    css`
+      min-width: 50%;
+      padding: 0.5rem 1rem;
+      background: ${({ children }) => (children.includes("NO") ? "red" : "green")};
+
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
       border-radius: 100px;
     `}
 `;
