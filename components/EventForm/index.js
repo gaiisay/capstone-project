@@ -120,7 +120,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
 const StyledForm = styled.form`
   margin: 10px auto;
   display: grid;
-  gap: 1rem;
+  gap: 8px;
   width: 90vw;
 
   button {

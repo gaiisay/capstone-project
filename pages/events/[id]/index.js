@@ -46,7 +46,7 @@ function EventDetails() {
       </Wrapper>
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
-        <Svg variant="edit" />
+        <Svg variant="edit" size="30" />
       </StyledLink>
     </>
   );

@@ -20,7 +20,7 @@ export default function Home() {
       ))}
 
       <StyledLink href="/events/add" variant="fab">
-        <Svg variant="add" />
+        <Svg variant="add" size="30" />
       </StyledLink>
     </>
   );
