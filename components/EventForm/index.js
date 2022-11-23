@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
 import { useState } from "react";
+import { formatOnlyTime } from "../../utils/helpers";
 
 function EventForm({ defaultEvent, sendEvent, buttonContent }) {
   const [date, setDate] = useState(defaultEvent?.date ?? null);
@@ -16,13 +17,15 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
   function handleSubmit(event) {
     event.preventDefault();
 
+    console.log("date " + date, "startTime " + startTime, "endTime " + endTime);
+
     if (!date) {
       setDateEmpty(true);
       return;
     } else if (!startTime) {
       setStartTimeEmpty(true);
       return;
-    } else if (!endTime || startTime > endTime) {
+    } else if (!endTime || formatOnlyTime(startTime) > formatOnlyTime(endTime)) {
       setEndTimeEmpty(true);
       return;
     }

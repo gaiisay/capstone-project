@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { formatDate, formatTime } from "../../utils/helpers";
+import { formatDate, formatRenderTime } from "../../utils/helpers";
 import StyledLink from "../StyledLink";
 
 function EventCard({ event, teamName = "Your Team" }) {
   const eventDate = formatDate(event.date);
-  const eventTime = formatTime(event.startTime, event.endTime);
+  const eventTime = formatRenderTime(event.startTime, event.endTime);
 
   return (
     <StyledLink href={`/events/${event.id}`}>

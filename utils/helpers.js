@@ -3,7 +3,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString("de-DE", options).replace(/[.,]/g, "");
 }
 
-function formatTime(startTime, endTime) {
+function formatRenderTime(startTime, endTime) {
   return (
     new Date(startTime).toLocaleTimeString("de-DE", { timeStyle: "short" }) +
     " - " +
@@ -11,4 +11,8 @@ function formatTime(startTime, endTime) {
   );
 }
 
-export { formatDate, formatTime };
+function formatOnlyTime(time) {
+  return new Date(time).toTimeString();
+}
+
+export { formatDate, formatRenderTime, formatOnlyTime };
