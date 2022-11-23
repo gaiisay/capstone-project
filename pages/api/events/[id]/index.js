@@ -1,4 +1,4 @@
-import { deleteEventById, getEventById, updateEventById } from "../../../../helpers/db";
+import { deleteEventById, getEventById, updateEventById } from "../../../../services/eventService";
 
 async function handler(req, res) {
   const { id } = req.query;

@@ -5,8 +5,8 @@ import Button from "../../../components/Button";
 import DeleteEvent from "../../../components/DeleteEvent";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
-import { fetcher } from "../../../helpers/api";
-import { formatDate, formatTime } from "../../../helpers/util";
+import { fetcher } from "../../../utils/api";
+import { formatDate, formatTime } from "../../../utils/helpers";
 
 function EventDetails() {
   const router = useRouter();

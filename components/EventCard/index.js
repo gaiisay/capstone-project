@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { formatDate, formatTime } from "../../helpers/util";
+import { formatDate, formatTime } from "../../utils/helpers";
 import StyledLink from "../StyledLink";
 
 function EventCard({ event, teamName = "Your Team" }) {
