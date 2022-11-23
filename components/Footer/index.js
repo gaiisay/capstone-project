@@ -10,7 +10,7 @@ function Footer() {
     <footer>
       <StyledNav>
         <StyledLink href="/" variant="nav">
-          <Svg variant="events" active={pathname === "/" ? true : false} />
+          <Svg variant="events" active={pathname === "/" || pathname.startsWith("/events") ? true : false} />
           Events
         </StyledLink>
         <StyledLink href="/team" variant="nav">

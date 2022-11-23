@@ -5,6 +5,8 @@ const StyledLink = styled(Link)`
   color: black;
   text-decoration: none;
 
+  -webkit-tap-highlight-color: transparent;
+
   ${({ variant }) =>
     variant === "fab" &&
     css`

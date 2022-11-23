@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
-import Button from "../../../components/Button";
 import DeleteEvent from "../../../components/DeleteEvent";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";

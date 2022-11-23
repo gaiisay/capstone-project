@@ -15,7 +15,7 @@ const svgObject = {
 
 function Svg({ variant, color = "currentColor", active = false }) {
   return (
-    <SvgContainer active={active}>
+    <SvgContainer variant={variant} active={active}>
       <StyledSvg variant={variant} viewBox="0 0 24 24">
         <path fill={color} d={svgObject[variant]} />
       </StyledSvg>
@@ -43,16 +43,23 @@ const StyledSvg = styled.svg`
 `;
 
 const SvgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${({ variant }) =>
+    variant === "team" ||
+    (variant === "events" &&
+      css`
+        width: 64px;
+        height: 32px;
+      `)}
+
   ${({ active }) =>
     active &&
     css`
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 64px;
-      height: 32px;
       background-color: #d8e2ff;
       border-radius: 16px;
+      transition: 0.3s;
     `}
 `;
 
