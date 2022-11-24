@@ -2,7 +2,7 @@ import useSWR from "swr";
 import EventCard from "../components/EventCard";
 import StyledLink from "../components/StyledLink";
 import Svg from "../components/Svg";
-import { fetcher } from "../helpers/api";
+import { fetcher } from "../utils/api";
 
 export default function Home() {
   const { data: events, error } = useSWR("/api/events", fetcher);
@@ -20,7 +20,7 @@ export default function Home() {
       ))}
 
       <StyledLink href="/events/add" variant="fab">
-        <Svg variant="add" />
+        <Svg variant="add" size="30" />
       </StyledLink>
     </>
   );

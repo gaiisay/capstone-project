@@ -1,4 +1,4 @@
-import { createEvent, getAllEvents } from "../../../helpers/db";
+import { createEvent, getAllEvents } from "../../../services/eventService";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {

@@ -1,12 +1,11 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
-import Button from "../../../components/Button";
 import DeleteEvent from "../../../components/DeleteEvent";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
-import { fetcher } from "../../../helpers/api";
-import { formatDate, formatTime } from "../../../helpers/util";
+import { fetcher } from "../../../utils/api";
+import { formatDate, formatRenderTime } from "../../../utils/helpers";
 
 function EventDetails() {
   const router = useRouter();
@@ -19,7 +18,7 @@ function EventDetails() {
   if (!event) return <h1>...Loading...</h1>;
 
   const eventDate = formatDate(event.date);
-  const eventTime = formatTime(event.startTime, event.endTime);
+  const eventTime = formatRenderTime(event.startTime, event.endTime);
   const eventLocation = !event.location ? "As usual" : event.location;
   const eventDescription = !event.description ? "Let's goooo" : event.description;
 
@@ -46,7 +45,7 @@ function EventDetails() {
       </Wrapper>
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
-        <Svg variant="edit" />
+        <Svg variant="edit" size="30" />
       </StyledLink>
     </>
   );

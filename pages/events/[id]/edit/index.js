@@ -4,7 +4,7 @@ import { de } from "date-fns/locale";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import EventForm from "../../../../components/EventForm";
-import { fetcher } from "../../../../helpers/api";
+import { fetcher } from "../../../../utils/api";
 
 function EditEvent() {
   const router = useRouter();

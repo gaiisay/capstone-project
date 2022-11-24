@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
     }
+
+    main {
+        margin-bottom: 80px;
+    }
 `;
 
 export default GlobalStyles;
