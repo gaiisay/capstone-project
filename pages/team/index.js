@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../../utils/api";
-import teamLogo from "../../public/teamLogo.jpeg";
+import teamLogo from "../../public/teamlogo.jpeg";
 import PlayerCard from "../../components/PlayerCard";
 
 function Team() {
