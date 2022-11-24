@@ -19,3 +19,15 @@ DefaultPlayerCard.args = {
     imageSrc: "/gai.jpeg",
   },
 };
+export const MinimalPlayerCard = Template.bind({});
+MinimalPlayerCard.args = {
+  player: {
+    id: "1234",
+    name: "Gai Isay",
+    age: 26,
+    position: "Guard",
+    role: "Captain",
+    imageSrc: "/gai.jpeg",
+  },
+  minimal: true,
+};

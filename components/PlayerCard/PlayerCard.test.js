@@ -26,4 +26,26 @@ describe("PlayerCard", () => {
     expect(position).toHaveTextContent(player.position);
     expect(role).toHaveTextContent(player.role);
   });
+  it("only renders name role of a player if minimal prop is set", () => {
+    const player = {
+      id: "1234",
+      name: "Gai Isay",
+      age: 26,
+      position: "Guard",
+      role: "Captain",
+      imageSrc: "/gai.jpeg",
+    };
+
+    render(<PlayerCard player={player} minimal />);
+
+    const name = screen.getByText(/gai/i);
+    const age = screen.queryByText(/26/i);
+    const position = screen.queryByText(/guard/i);
+    const role = screen.getByText(/captain/i);
+
+    expect(name).toHaveTextContent(player.name);
+    expect(age).toBeNull();
+    expect(position).toBeNull();
+    expect(role).toHaveTextContent(player.role);
+  });
 });
