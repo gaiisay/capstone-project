@@ -22,7 +22,7 @@ const Card = styled.div`
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
-  margin: 0.5rem;
+  margin-bottom: 0.5rem;
   display: grid;
   grid-template-columns: 2rem 3fr;
   align-items: center;
