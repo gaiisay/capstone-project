@@ -13,14 +13,16 @@ function Team() {
   if (!players) return <h1>...Loading...</h1>;
 
   return (
-    <Wrapper>
-      <h2>Your team</h2>
-      <Image src={teamLogo} width={70} alt="teamlogo" />
-      <h3>Kader</h3>
+    <>
+      <Wrapper>
+        <h2>Your team</h2>
+        <Image src={teamLogo} width={70} alt="teamlogo" />
+        <h3>Kader</h3>
+      </Wrapper>
       {players.map((player) => (
         <PlayerCard player={player} />
       ))}
-    </Wrapper>
+    </>
   );
 }
 

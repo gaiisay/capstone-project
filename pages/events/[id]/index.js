@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
 import DeleteEvent from "../../../components/DeleteEvent";
+import PlayerAssignList from "../../../components/PlayerAssignList";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
 import { fetcher } from "../../../utils/api";
@@ -42,6 +43,8 @@ function EventDetails() {
         </p>
         <p>Location: {eventLocation}</p>
         <p>Description: {eventDescription}</p>
+
+        <PlayerAssignList minimal />
       </Wrapper>
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
@@ -52,9 +55,8 @@ function EventDetails() {
 }
 
 const Wrapper = styled.div`
-  width: 90vw;
   align-self: flex-start;
-  margin: 1rem 2rem;
+  padding: 1rem 2rem;
   display: grid;
   gap: 5px;
 `;
