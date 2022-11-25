@@ -11,30 +11,44 @@ function PlayerAssignList({ eventId }) {
   if (!players) return <h1>...Loading...</h1>;
 
   async function assignPlayer(player, status) {
+    const attendance = player.attendances.find((attendance) => attendance.eventId === eventId);
+    if (attendance) {
+      player.attendances.map((att) => {
+        if (att.eventId === attendance.eventId) {
+          att.status = status;
+          return att;
+        } else return att;
+      });
+    }
+
     await fetch(`/api/players/${player.id}`, {
       method: "PATCH",
       body: JSON.stringify({
         ...player,
-        attendances: [
-          ...player.attendances,
-          {
-            eventId: eventId,
-            status: status,
-          },
-        ],
+        attendances:
+          player.attendances.length === 0
+            ? [
+                ...player.attendances,
+                {
+                  eventId: eventId,
+                  status: status,
+                },
+              ]
+            : player.attendances,
       }),
     });
     mutate();
   }
 
   const unassignedPlayers = players.filter((player) => {
-    if (player.attendances.find((attendance) => Object.values(attendance).includes(eventId))) return;
     if (
       player.attendances.find(
         (attendance) => Object.values(attendance).includes(eventId) && Object.values(attendance).includes("unassigned")
       )
     )
       return player;
+    if (player.attendances.find((attendance) => Object.values(attendance).includes(eventId))) return;
+
     return player;
   });
   const acceptedPlayers = players.filter((player) =>

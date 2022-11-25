@@ -12,8 +12,9 @@ function PlayerCard({ player, minimal, assignPlayer }) {
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
             <ButtonGroup>
-              <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")}></Button>
-              <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")}></Button>
+              <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")} />
+              <Button type="button" variant="unassign" onClick={() => assignPlayer(player, "unassigned")} />
+              <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")} />
             </ButtonGroup>
           </Wrapper>
         </SimpleCard>
