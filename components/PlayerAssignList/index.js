@@ -26,7 +26,7 @@ function PlayerAssignList({ eventId }) {
       body: JSON.stringify({
         ...player,
         attendances:
-          player.attendances.length === 0
+          player.attendances.length === 0 || !attendance
             ? [
                 ...player.attendances,
                 {

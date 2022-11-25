@@ -28,6 +28,11 @@ function EventDetails() {
       method: "DELETE",
     });
 
+    await fetch("/api/players", {
+      method: "PATCH",
+      body: event.id,
+    });
+
     router.push("/");
   }
 

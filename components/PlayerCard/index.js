@@ -40,7 +40,7 @@ const SimpleCard = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
