@@ -7,6 +7,12 @@ const playerSchema = new Schema({
   position: String,
   role: String,
   imageSrc: String,
+  attendances: [
+    {
+      eventId: String,
+      status: String,
+    },
+  ],
 });
 
 const Player = models.Player || model("Player", playerSchema);

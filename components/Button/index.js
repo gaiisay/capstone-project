@@ -38,8 +38,8 @@ const StyledButton = styled.button`
   ${({ variant }) =>
     variant === "accept" &&
     css`
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       background: #0ba95b;
       border-radius: 100px;
       border: none;
@@ -48,8 +48,8 @@ const StyledButton = styled.button`
   ${({ variant }) =>
     variant === "cancel" &&
     css`
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       background: #ed203d;
       border-radius: 100px;
       border: none;

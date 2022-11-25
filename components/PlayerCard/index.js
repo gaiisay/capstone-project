@@ -2,24 +2,24 @@ import Image from "next/image";
 import styled from "styled-components";
 import Button from "../Button";
 
-function PlayerCard({ player, minimal }) {
+function PlayerCard({ player, minimal, assignPlayer }) {
   return (
     <>
       {minimal ? (
         <SimpleCard>
-          <StyledImg src={player.imageSrc} width={30} height={30} />
+          <StyledImg src={player.imageSrc} width={30} height={30} alt={`image of ${player.name}`} />
           <Wrapper>
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
             <ButtonGroup>
-              <Button type="button" variant="accept"></Button>
-              <Button type="button" variant="cancel"></Button>
+              <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")}></Button>
+              <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")}></Button>
             </ButtonGroup>
           </Wrapper>
         </SimpleCard>
       ) : (
         <Card>
-          <StyledImg src={player.imageSrc} width={50} height={50} />
+          <StyledImg src={player.imageSrc} width={50} height={50} alt={`image of ${player.name}`} />
           <Wrapper>
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
