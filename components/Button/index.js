@@ -35,6 +35,26 @@ const StyledButton = styled.button`
       background-color: transparent;
       border: none;
     `}
+  ${({ variant }) =>
+    variant === "accept" &&
+    css`
+      width: 40px;
+      height: 40px;
+      background: #0ba95b;
+      border-radius: 100px;
+      border: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    `}
+  ${({ variant }) =>
+    variant === "cancel" &&
+    css`
+      width: 40px;
+      height: 40px;
+      background: #ed203d;
+      border-radius: 100px;
+      border: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    `}
 
   ${({ variant }) =>
     variant === "standard" &&
