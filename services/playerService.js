@@ -26,8 +26,7 @@ async function updatePlayerById(id, player) {
 async function updatePlayersWhenEventDeleted(id) {
   await connectToDatabase();
 
-  const output = await Player.updateMany({}, { $pull: { attendances: { eventId: id } } });
-  console.log(id, output);
+  await Player.updateMany({}, { $pull: { attendances: { eventId: id } } });
 
   const updatedPlayers = await getAllPlayers();
   return updatedPlayers;

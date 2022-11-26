@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../../utils/api";
 import PlayerCard from "../PlayerCard";
@@ -64,20 +65,38 @@ function PlayerAssignList({ eventId }) {
 
   return (
     <>
-      <h3>Unassigned</h3>
+      <StyledH3>
+        Unassigned <span>{unassignedPlayers.length}</span>
+      </StyledH3>
       {unassignedPlayers.map((player) => (
         <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
       ))}
-      <h3>Accepted</h3>
+      <StyledH3 accepted>
+        Accepted <span>{acceptedPlayers.length}</span>
+      </StyledH3>
       {acceptedPlayers.map((player) => (
         <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
       ))}
-      <h3>Cancelled</h3>
+      <StyledH3 cancelled>
+        Cancelled <span>{cancelledPlayers.length}</span>
+      </StyledH3>
       {cancelledPlayers.map((player) => (
         <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
       ))}
     </>
   );
 }
+
+const StyledH3 = styled.h3`
+  color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
+  margin: 1rem 0 0.5rem 0;
+  span {
+    margin-left: 1rem;
+    color: white;
+    background-color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+  }
+`;
 
 export default PlayerAssignList;
