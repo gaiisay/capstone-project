@@ -39,7 +39,7 @@ function PlayerAssignList({ eventId, setAttendances }) {
       }),
     });
 
-    mutate((newPlayers) => setAttendances(newPlayers, eventId));
+    mutate();
   }
 
   const unassignedPlayers = players.filter((player) => {
