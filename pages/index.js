@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import useSWR from "swr";
 import EventCard from "../components/EventCard";
 import StyledLink from "../components/StyledLink";
 import Svg from "../components/Svg";
 import { fetcher } from "../utils/api";
 
-export default function Home({ attendances }) {
-  const { data: events, error } = useSWR("/api/events", fetcher);
+export default function Home({ attendances, setAttendances }) {
+  const { data: players } = useSWR("/api/players", fetcher);
+  const { data: events, error } = useSWR(players ? "/api/events" : null, fetcher, {
+    onSuccess: (data) => {
+      for (const event of data) {
+        setAttendances(players, event.id);
+      }
+    },
+  });
 
   if (error) return <h1>There was an error</h1>;
 
@@ -25,7 +33,6 @@ export default function Home({ attendances }) {
   return (
     <>
       {sortedEvents.map((event) => {
-        console.log(event);
         return <EventCard key={event.id} event={event} />;
       })}
 
