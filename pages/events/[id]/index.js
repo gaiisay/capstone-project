@@ -28,6 +28,11 @@ function EventDetails() {
       method: "DELETE",
     });
 
+    await fetch("/api/players", {
+      method: "PATCH",
+      body: event.id,
+    });
+
     router.push("/");
   }
 
@@ -44,7 +49,7 @@ function EventDetails() {
         <p>Location: {eventLocation}</p>
         <p>Description: {eventDescription}</p>
 
-        <PlayerAssignList minimal />
+        <PlayerAssignList minimal eventId={event.id} />
       </Wrapper>
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">

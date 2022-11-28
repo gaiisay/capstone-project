@@ -8,4 +8,30 @@ async function getAllPlayers() {
   return players;
 }
 
-export { getAllPlayers };
+async function getPlayerById(id) {
+  await connectToDatabase();
+
+  const player = await Player.findOne({ id }, { _id: false, __v: false });
+  return player;
+}
+
+async function updatePlayerById(id, player) {
+  await connectToDatabase();
+
+  await Player.updateOne({ id }, player);
+  const updatedPlayer = await getPlayerById(id);
+  return updatedPlayer;
+}
+
+async function updatePlayersWhenEventDeleted(id) {
+  await connectToDatabase();
+
+  await Player.updateMany({}, { $pull: { attendances: { eventId: id } } });
+
+  const updatedPlayers = await getAllPlayers();
+  return updatedPlayers;
+}
+
+Player.updateMany;
+
+export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted };

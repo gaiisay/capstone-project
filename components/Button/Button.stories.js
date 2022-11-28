@@ -26,3 +26,21 @@ StandardButton.args = {
   variant: "standard",
   children: "YES",
 };
+export const AcceptButton = Template.bind({});
+AcceptButton.args = {
+  type: "button",
+  variant: "accept",
+  children: "",
+};
+export const CancelButton = Template.bind({});
+CancelButton.args = {
+  type: "button",
+  variant: "cancel",
+  children: "",
+};
+export const UnassignButton = Template.bind({});
+UnassignButton.args = {
+  type: "button",
+  variant: "unassign",
+  children: "",
+};

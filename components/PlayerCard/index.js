@@ -1,20 +1,26 @@
 import Image from "next/image";
 import styled from "styled-components";
+import Button from "../Button";
 
-function PlayerCard({ player, minimal }) {
+function PlayerCard({ player, minimal, assignPlayer }) {
   return (
     <>
       {minimal ? (
         <SimpleCard>
-          <StyledImg src={player.imageSrc} width={30} height={30} />
+          <StyledImg src={player.imageSrc} width={30} height={30} alt={`image of ${player.name}`} />
           <Wrapper>
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
+            <ButtonGroup>
+              <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")} />
+              <Button type="button" variant="unassign" onClick={() => assignPlayer(player, "unassigned")} />
+              <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")} />
+            </ButtonGroup>
           </Wrapper>
         </SimpleCard>
       ) : (
         <Card>
-          <StyledImg src={player.imageSrc} width={50} height={50} />
+          <StyledImg src={player.imageSrc} width={50} height={50} alt={`image of ${player.name}`} />
           <Wrapper>
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
@@ -31,8 +37,10 @@ function PlayerCard({ player, minimal }) {
 
 const SimpleCard = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
@@ -66,14 +74,20 @@ const StyledImg = styled(Image)`
 const StyledParagraph = styled.p`
   padding: 0.3rem 0.5rem;
   background-color: ${({ active }) => (active ? "cornflowerblue" : "")};
-
   width: fit-content;
   border-radius: 20px;
 `;
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 0.5rem;
 `;
 
 export default PlayerCard;

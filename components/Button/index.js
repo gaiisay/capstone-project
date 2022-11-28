@@ -17,6 +17,7 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   max-width: fit-content;
+  border: none;
 
   ${({ variant }) =>
     variant === "submit" &&
@@ -24,6 +25,7 @@ const StyledButton = styled.button`
       padding: 0.5rem 1rem;
       gap: 8px;
       border-radius: 100px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     `}
 
   ${({ variant }) =>
@@ -33,7 +35,33 @@ const StyledButton = styled.button`
       top: 1rem;
       right: 2rem;
       background-color: transparent;
-      border: none;
+    `}
+  ${({ variant }) =>
+    variant === "accept" &&
+    css`
+      width: 30px;
+      height: 30px;
+      background: #0ba95b;
+      border-radius: 100px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    `}
+  ${({ variant }) =>
+    variant === "cancel" &&
+    css`
+      width: 30px;
+      height: 30px;
+      background: #ed203d;
+      border-radius: 100px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    `}
+  ${({ variant }) =>
+    variant === "unassign" &&
+    css`
+      width: 30px;
+      height: 30px;
+      background: #fcba28;
+      border-radius: 100px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     `}
 
   ${({ variant }) =>

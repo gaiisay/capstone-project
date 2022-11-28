@@ -17,7 +17,7 @@ function Team() {
       <Wrapper>
         <h2>Your team</h2>
         <Image src={teamLogo} width={70} alt="teamlogo" />
-        <h3>Kader</h3>
+        <h3>Players</h3>
       </Wrapper>
       {players.map((player) => (
         <PlayerCard player={player} />

@@ -17,8 +17,6 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log("date " + date, "startTime " + startTime, "endTime " + endTime);
-
     if (!date) {
       setDateEmpty(true);
       return;
