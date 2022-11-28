@@ -69,7 +69,7 @@ const StyledButton = styled.button`
     css`
       min-width: 50%;
       padding: 0.5rem 1rem;
-      background: ${({ children }) => (children.includes("NO") ? "red" : "green")};
+      background: ${({ children }) => (children.includes("NO") ? "#ed203d" : "#0ba95b")};
 
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
       border-radius: 100px;

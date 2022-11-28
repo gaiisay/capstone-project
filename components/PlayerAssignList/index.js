@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { fetcher } from "../../utils/api";
 import PlayerCard from "../PlayerCard";
 
-function PlayerAssignList({ eventId }) {
+function PlayerAssignList({ eventId, setAttendances }) {
   const { data: players, error, mutate } = useSWR("/api/players", fetcher);
 
   if (error) return <h1>There was an error</h1>;
@@ -38,7 +38,8 @@ function PlayerAssignList({ eventId }) {
             : player.attendances,
       }),
     });
-    mutate();
+
+    mutate((newPlayers) => setAttendances(newPlayers, eventId));
   }
 
   const unassignedPlayers = players.filter((player) => {
