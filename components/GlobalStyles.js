@@ -1,18 +1,27 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
+    @font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+    }
+
+
+
     :root {
         --green: #0ba95b;
         --red: #ed203d;
         --yellow: #fcba28;
-        --card-color: #F7F6F5;
+        --card-color: #FF7D48;
         --active-nav-color: #d8e2ff;
+        --background-color: #F7F6F5;
     }
 
 
     html,
     body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: Montserrat, sans-serif
     }
 
 

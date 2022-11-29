@@ -19,9 +19,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   padding: 80px 0 130px 0;
-  background-image: url("ball-closeup.jpg");
-  background-repeat: none;
-  background-size: cover;
+  background-color: var(--background-color);
 `;
 
 export default Layout;

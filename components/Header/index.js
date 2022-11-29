@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 import StyledLink from "../StyledLink";
 import Svg from "../Svg";
-import logo from "../../public/logo.png";
 
 function Header() {
   const { pathname } = useRouter();
@@ -24,7 +23,7 @@ function Header() {
 
   return (
     <StyledHeader>
-      <Image src={logo} width={100} alt="Logo" />
+      <StyledH1>{pathname === "/" ? "Events" : pathname === "/team" ? "Team" : ""}</StyledH1>
     </StyledHeader>
   );
 }
@@ -34,24 +33,17 @@ const StyledHeader = styled.header`
   top: 0;
   width: 100%;
   height: 70px;
-  opacity: 90%;
-  background-color: var(--card-color);
+  background-color: var(--background-color);
   z-index: 10;
   padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
   align-items: center;
-  gap: 1rem;
-
-  ${({ isSubpage }) =>
-    isSubpage &&
-    css`
-      justify-content: flex-start;
-    `}
 `;
 const StyledH1 = styled.h1`
-  font-size: 1.2rem;
-  width: 4ch;
+  font-size: 1.7rem;
+  grid-column: 2/3;
+  text-align: center;
 `;
 
 export default Header;
