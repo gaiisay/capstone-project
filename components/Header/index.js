@@ -30,6 +30,13 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  opacity: 90%;
+  background-color: var(--card-color);
+  z-index: 10;
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;

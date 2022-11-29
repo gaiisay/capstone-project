@@ -41,7 +41,7 @@ const StyledButton = styled.button`
     css`
       width: 30px;
       height: 30px;
-      background: #0ba95b;
+      background: var(--green);
       border-radius: 100px;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     `}
@@ -50,7 +50,7 @@ const StyledButton = styled.button`
     css`
       width: 30px;
       height: 30px;
-      background: #ed203d;
+      background: var(--red);
       border-radius: 100px;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     `}
@@ -59,7 +59,7 @@ const StyledButton = styled.button`
     css`
       width: 30px;
       height: 30px;
-      background: #fcba28;
+      background: var(--yellow);
       border-radius: 100px;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     `}
@@ -69,7 +69,7 @@ const StyledButton = styled.button`
     css`
       min-width: 50%;
       padding: 0.5rem 1rem;
-      background: ${({ children }) => (children.includes("NO") ? "#ed203d" : "#0ba95b")};
+      background: ${({ children }) => (children.includes("NO") ? "var(--red)" : "var(--green)")};
 
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
       border-radius: 100px;

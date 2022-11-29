@@ -50,7 +50,7 @@ const SimpleCard = styled.div`
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
-  background-color: #f27507;
+  background-color: var(--card-color);
   border-radius: 10px;
   box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
 `;
@@ -66,7 +66,7 @@ const Card = styled.div`
   max-width: 500px;
   padding: 1rem;
   margin: 0.3rem 0;
-  background-color: #f27507;
+  background-color: var(--card-color);
   border-radius: 10px;
   box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
 `;

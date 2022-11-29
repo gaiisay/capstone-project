@@ -38,13 +38,6 @@ const StyledSvg = styled.svg`
       width: 1.5rem;
       height: 1.5rem;
     `}
-
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: #d8e2ff;
-      border-radius: 16px;
-    `}
 `;
 
 const SvgContainer = styled.div`
@@ -69,7 +62,7 @@ const SvgContainer = styled.div`
   ${({ active }) =>
     active &&
     css`
-      background-color: #d8e2ff;
+      background-color: var(--active-nav-color);
       border-radius: 16px;
       transition: 0.3s;
     `}

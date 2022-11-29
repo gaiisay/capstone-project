@@ -88,12 +88,13 @@ function PlayerAssignList({ eventId }) {
 }
 
 const StyledH3 = styled.h3`
-  color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
+  color: ${({ accepted, cancelled }) => (accepted ? "var(--green)" : cancelled ? "var(--red)" : "var(--yellow)")};
   margin: 1rem 0 0.5rem 0;
   span {
     margin-left: 1rem;
     color: white;
-    background-color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
+    background-color: ${({ accepted, cancelled }) =>
+      accepted ? "var(--green)" : cancelled ? "var(--red)" : "var(--yellow)"};
     padding: 0.2rem 0.6rem;
     border-radius: 50px;
   }

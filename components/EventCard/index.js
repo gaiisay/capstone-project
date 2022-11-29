@@ -37,7 +37,8 @@ const Card = styled.div`
   grid-template-columns: 2rem 1fr 20px;
   align-items: center;
   column-gap: 2rem;
-  background-color: #f27507;
+  background-color: var(--card-color);
+  opacity: 90%;
   border-radius: 10px;
   box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
 `;
@@ -56,7 +57,7 @@ const AttendanceWrapper = styled.div`
 
 const AttendanceNumber = styled.p`
   padding: 10px;
-  background-color: ${({ accepted }) => (accepted ? "#0ba95b" : "#ed203d")};
+  background-color: ${({ accepted }) => (accepted ? "var(--green)" : "var(--red)")};
   border-radius: 10px;
 `;
 
