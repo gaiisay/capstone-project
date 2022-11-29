@@ -1,6 +1,5 @@
 import GlobalStyles from "../components/GlobalStyles";
 import Layout from "../components/Layout";
-import { useLocalStorage } from "../utils/hooks";
 
 function MyApp({ Component, pageProps }) {
   return (

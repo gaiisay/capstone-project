@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../../utils/api";

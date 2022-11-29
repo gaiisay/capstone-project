@@ -8,7 +8,7 @@ import Svg from "../../../components/Svg";
 import { fetcher } from "../../../utils/api";
 import { formatDate, formatRenderTime } from "../../../utils/helpers";
 
-function EventDetails({ setAttendances }) {
+function EventDetails() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -49,7 +49,7 @@ function EventDetails({ setAttendances }) {
         <p>Location: {eventLocation}</p>
         <p>Description: {eventDescription}</p>
 
-        <PlayerAssignList minimal eventId={event.id} setAttendances={setAttendances} />
+        <PlayerAssignList minimal eventId={event.id} />
       </Wrapper>
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
