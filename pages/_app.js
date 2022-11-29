@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <Component {...pageProps} /* attendances={attendances} setAttendances={addAttendance} */ />
     </Layout>
   );
 }

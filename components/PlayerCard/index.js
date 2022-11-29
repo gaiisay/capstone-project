@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import Button from "../Button";
 
-function PlayerCard({ player, minimal, assignPlayer }) {
+function PlayerCard({ player, minimal, assignPlayer, category }) {
   return (
     <>
       {minimal ? (
@@ -12,9 +12,15 @@ function PlayerCard({ player, minimal, assignPlayer }) {
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
             <ButtonGroup>
-              <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")} />
-              <Button type="button" variant="unassign" onClick={() => assignPlayer(player, "unassigned")} />
-              <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")} />
+              {category === "accepted" ? undefined : (
+                <Button type="button" variant="accept" onClick={() => assignPlayer(player, "accepted")} />
+              )}
+              {category === "unassigned" ? undefined : (
+                <Button type="button" variant="unassign" onClick={() => assignPlayer(player, "unassigned")} />
+              )}
+              {category === "cancelled" ? undefined : (
+                <Button type="button" variant="cancel" onClick={() => assignPlayer(player, "cancelled")} />
+              )}
             </ButtonGroup>
           </Wrapper>
         </SimpleCard>

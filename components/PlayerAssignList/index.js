@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../../utils/api";
@@ -38,6 +37,7 @@ function PlayerAssignList({ eventId }) {
             : player.attendances,
       }),
     });
+
     mutate();
   }
 
@@ -69,19 +69,19 @@ function PlayerAssignList({ eventId }) {
         Unassigned <span>{unassignedPlayers.length}</span>
       </StyledH3>
       {unassignedPlayers.map((player) => (
-        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
+        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} category="unassigned" />
       ))}
       <StyledH3 accepted>
         Accepted <span>{acceptedPlayers.length}</span>
       </StyledH3>
       {acceptedPlayers.map((player) => (
-        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
+        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} category="accepted" />
       ))}
       <StyledH3 cancelled>
         Cancelled <span>{cancelledPlayers.length}</span>
       </StyledH3>
       {cancelledPlayers.map((player) => (
-        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} />
+        <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} category="cancelled" />
       ))}
     </>
   );
