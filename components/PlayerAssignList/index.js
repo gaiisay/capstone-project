@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { fetcher } from "../../utils/api";
 import PlayerCard from "../PlayerCard";
 
-function PlayerAssignList({ eventId, setAttendances }) {
+function PlayerAssignList({ eventId }) {
   const { data: players, error, mutate } = useSWR("/api/players", fetcher);
 
   if (error) return <h1>There was an error</h1>;
