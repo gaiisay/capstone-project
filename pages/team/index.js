@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../../utils/api";
-import teamLogo from "../../public/teamlogo.jpeg";
+import teamLogo from "../../public/teamlogo.png";
 import PlayerCard from "../../components/PlayerCard";
 
 function Team() {
@@ -16,8 +16,8 @@ function Team() {
     <>
       <Wrapper>
         <h2>Your team</h2>
-        <Image src={teamLogo} width={70} alt="teamlogo" />
-        <h3>Players</h3>
+        <Image src={teamLogo} width={90} alt="teamlogo" />
+        <h3>Players </h3>
       </Wrapper>
       {players.map((player) => (
         <PlayerCard player={player} />
@@ -27,15 +27,19 @@ function Team() {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 90vw;
   padding: 0 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   row-gap: 10px;
+  margin-bottom: 0.5rem;
 
   img {
     justify-self: center;
+  }
+
+  h3 {
   }
 `;
 

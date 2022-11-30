@@ -60,8 +60,8 @@ function EventDetails() {
 }
 
 const Wrapper = styled.div`
-  align-self: flex-start;
-  padding: 1rem 2rem;
+  align-self: stretch;
+  padding: 0 1rem;
   display: grid;
   gap: 5px;
 `;

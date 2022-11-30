@@ -92,7 +92,7 @@ const StyledH3 = styled.h3`
   margin: 1rem 0 0.5rem 0;
   span {
     margin-left: 1rem;
-    color: white;
+    color: #fffbff;
     background-color: ${({ accepted, cancelled }) =>
       accepted ? "var(--green)" : cancelled ? "var(--red)" : "var(--yellow)"};
     padding: 0.2rem 0.6rem;

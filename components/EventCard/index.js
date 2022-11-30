@@ -44,7 +44,7 @@ const Card = styled.div`
   border-radius: 12px;
   opacity: 95%;
   background-color: var(--card-color);
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
   font-variation-settings: "wght" 500;
 `;
 
@@ -63,7 +63,7 @@ const AttendanceNumber = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 
   div {
     padding: unset;

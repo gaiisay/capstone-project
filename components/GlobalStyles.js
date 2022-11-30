@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
         --fab-color: #FFDBC8;
         --nav-color: linear-gradient(0deg, rgba(152, 71, 0, 0.08), rgba(152, 71, 0, 0.08)), #FFFBFF;
         --text-color: #201A17;
+        --box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
     }
 
 

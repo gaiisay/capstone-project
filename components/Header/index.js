@@ -14,9 +14,7 @@ function Header() {
         <StyledLink href={pathname.includes("edit") ? `/events/${id}` : "/"} variant="back">
           <Svg variant="back" />
         </StyledLink>
-        <StyledH1>
-          {pathname.includes("edit") ? "Edit Event" : pathname.includes("add") ? "Create Event" : "Event Details"}
-        </StyledH1>
+        <StyledH1>{pathname.includes("edit") ? "Edit Event" : pathname.includes("add") ? "Create Event" : ""}</StyledH1>
       </StyledHeader>
     );
   }
@@ -29,11 +27,10 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
-  position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
-  background-color: var(--background-color);
+  background: var(--background-color);
   z-index: 10;
   padding: 0.5rem 1rem;
   display: grid;
