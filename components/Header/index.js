@@ -27,11 +27,10 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
+  position: absolute;
   top: 0;
   width: 100%;
   height: 70px;
-  background: var(--background-color);
-  z-index: 10;
   padding: 0.5rem 1rem;
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;

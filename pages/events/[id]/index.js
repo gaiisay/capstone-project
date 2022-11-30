@@ -38,19 +38,21 @@ function EventDetails() {
 
   return (
     <>
+      <Background />
       <DeleteEvent deleteEvent={deleteEvent} />
       <Wrapper>
         <h2>{event.name}</h2>
-        <h3>Your team</h3>
         <p>
-          <time>{eventDate} </time>
-          <time>{eventTime}</time>
+          <time>{eventDate}</time> &nbsp; <time>{eventTime}</time>
         </p>
-        <p>Location: {eventLocation}</p>
-        <p>Description: {eventDescription}</p>
 
-        <PlayerAssignList minimal eventId={event.id} />
+        <h3>Location</h3>
+        <p>{eventLocation}</p>
+
+        <h3>Description</h3>
+        <p>{eventDescription}</p>
       </Wrapper>
+      <PlayerAssignList minimal eventId={event.id} />
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
         <Svg variant="edit" size="30" />
@@ -62,8 +64,36 @@ function EventDetails() {
 const Wrapper = styled.div`
   align-self: stretch;
   padding: 0 1rem;
+  justify-items: center;
+  text-align: center;
   display: grid;
   gap: 5px;
+  height: 100%;
+  z-index: 5;
+
+  h2,
+  h3 {
+    font-variation-settings: "wght" 700;
+  }
+
+  p,
+  time {
+    font-variation-settings: "wght" 500;
+  }
+`;
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: url("/ball-closeup.jpg");
+  background-color: var(--background-color);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.25;
+  /*   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+ */
 `;
 
 export default EventDetails;

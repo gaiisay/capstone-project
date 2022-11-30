@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
 
     @font-face {
     font-family: 'Montserrat';
-    src: url('./fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+    src: url('/fonts/Montserrat-VariableFont_wght.ttf')
     }
 
 
@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
         --yellow: #fcba28;
         --card-color: #ff964f;
         --active-nav-color: #FFDBC8;
-        --background-color: linear-gradient(0deg, rgba(152, 71, 0, 0.05), rgba(152, 71, 0, 0.05)), #FFFBFF;
+        --background-color: #FFFBFF;
         --fab-color: #FFDBC8;
         --nav-color: linear-gradient(0deg, rgba(152, 71, 0, 0.08), rgba(152, 71, 0, 0.08)), #FFFBFF;
         --text-color: #201A17;

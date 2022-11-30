@@ -20,7 +20,7 @@ function Team() {
         <h3>Players </h3>
       </Wrapper>
       {players.map((player) => (
-        <PlayerCard player={player} />
+        <PlayerCard key={player.id} player={player} />
       ))}
     </>
   );

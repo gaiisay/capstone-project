@@ -26,6 +26,7 @@ const StyledButton = styled.button`
       gap: 8px;
       border-radius: 100px;
       box-shadow: var(--box-shadow);
+      background: var(--fab-color);
     `}
 
   ${({ variant }) =>
@@ -35,6 +36,7 @@ const StyledButton = styled.button`
       top: 18px;
       right: 2rem;
       background-color: transparent;
+      z-index: 10;
     `}
   ${({ variant }) =>
     variant === "accept" &&

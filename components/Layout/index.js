@@ -18,7 +18,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0 130px 0;
+  padding: 70px 0 70px 0;
   background: var(--background-color);
 `;
 
