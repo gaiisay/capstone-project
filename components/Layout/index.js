@@ -19,7 +19,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   padding: 80px 0 130px 0;
-  background-color: var(--background-color);
+  background: var(--background-color);
 `;
 
 export default Layout;

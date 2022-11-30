@@ -14,7 +14,7 @@ const StyledLink = styled(Link)`
       padding: 0.7rem 0.9rem;
       bottom: 90px;
       right: 2rem;
-      background: linear-gradient(0deg, rgba(0, 90, 193, 0.08), rgba(0, 90, 193, 0.08)), #fefbff;
+      background: var(--fab-color);
 
       box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
       border-radius: 16px;

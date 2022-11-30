@@ -44,6 +44,7 @@ const StyledH1 = styled.h1`
   font-size: 1.7rem;
   grid-column: 2/3;
   text-align: center;
+  font-variation-settings: "wght" 500;
 `;
 
 export default Header;

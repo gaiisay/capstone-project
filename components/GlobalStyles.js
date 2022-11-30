@@ -10,18 +10,22 @@ const GlobalStyles = createGlobalStyle`
 
 
     :root {
-        --green: #0ba95b;
-        --red: #ed203d;
+        --green: #77dd77;
+        --red: #ff6961;
         --yellow: #fcba28;
-        --card-color: #FF7D48;
-        --active-nav-color: #d8e2ff;
-        --background-color: #F7F6F5;
+        --card-color: #ff964f;
+        --active-nav-color: #FFDBC8;
+        --background-color: linear-gradient(0deg, rgba(152, 71, 0, 0.05), rgba(152, 71, 0, 0.05)), #FFFBFF;
+        --fab-color: #FFDBC8;
+        --nav-color: linear-gradient(0deg, rgba(152, 71, 0, 0.08), rgba(152, 71, 0, 0.08)), #FFFBFF;
+        --text-color: #201A17;
     }
 
 
     html,
     body {
-        font-family: Montserrat, sans-serif
+        font-family: Montserrat, sans-serif;
+        
     }
 
 
@@ -30,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+        color: var(--text-color)
     }
 `;
 

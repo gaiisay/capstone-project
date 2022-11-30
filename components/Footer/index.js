@@ -35,7 +35,7 @@ const StyledNav = styled.nav`
   width: 100%;
   height: 70px;
 
-  background: linear-gradient(0deg, rgba(0, 90, 193, 0.08), rgba(0, 90, 193, 0.08)), #fefbff;
+  background: var(--nav-color);
 `;
 
 export default Footer;
