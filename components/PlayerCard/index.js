@@ -49,7 +49,7 @@ const SimpleCard = styled.div`
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
-  background-color: var(--card-color);
+  background: var(--card-color);
   opacity: 95%;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
@@ -66,7 +66,7 @@ const Card = styled.div`
   max-width: 500px;
   padding: 1rem;
   margin: 0.3rem 0;
-  background-color: var(--card-color);
+  background: var(--card-color);
   opacity: 95%;
   border-radius: 10px;
   box-shadow: var(--box-shadow);

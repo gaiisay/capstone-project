@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
         --green: #77dd77;
         --red: #ff6961;
         --yellow: #fcba28;
-        --card-color: #ff964f;
+        --card-color: linear-gradient(90deg, hsla(24, 100%, 65%, 1) 0%, hsla(24, 100%, 82%, 1) 100%);
         --active-nav-color: #FFDBC8;
         --background-color: #FFFBFF;
         --fab-color: #FFDBC8;

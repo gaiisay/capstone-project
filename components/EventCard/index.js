@@ -38,12 +38,11 @@ const Card = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: 2rem 1fr 20px;
+  grid-template-columns: 2rem 1fr;
   align-items: center;
   column-gap: 2rem;
   border-radius: 12px;
-  opacity: 95%;
-  background-color: var(--card-color);
+  background: var(--card-color);
   box-shadow: var(--box-shadow);
   font-variation-settings: "wght" 500;
 `;
@@ -57,8 +56,8 @@ const AttendanceNumber = styled.div`
   position: absolute;
   font-size: 1.1rem;
   right: 0px;
-  width: 50px;
-  height: 30px;
+  width: 60px;
+  height: 35px;
   padding: 10px;
   display: flex;
   justify-content: space-between;

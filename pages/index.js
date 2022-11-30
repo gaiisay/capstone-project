@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 import EventCard from "../components/EventCard";
 import StyledLink from "../components/StyledLink";
