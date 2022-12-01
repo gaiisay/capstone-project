@@ -15,10 +15,11 @@ function Layout({ children }) {
 }
 
 const Main = styled.main`
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px 0 70px 0;
+  padding: 0 0 70px 0;
   background: var(--background-color);
 `;
 

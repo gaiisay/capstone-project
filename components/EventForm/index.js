@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import TextField from "@mui/material/TextField";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import Button from "../Button";
@@ -38,19 +38,24 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
   }
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="input-event-name">Event Name *</label>
-      <input
-        type="text"
-        id="input-event-name"
-        name="name"
-        pattern=".*[\S]+.*"
-        defaultValue={defaultEvent?.name}
-        maxLength={50}
-        required
-      />
-
-      <label htmlFor="input-description">Description</label>
-      <textarea id="input-description" name="description" rows="5" defaultValue={defaultEvent?.description} />
+      <InputContainer>
+        <StyledInput
+          type="text"
+          id="input-event-name"
+          name="name"
+          pattern=".*[\S]+.*"
+          defaultValue={defaultEvent?.name}
+          maxLength={50}
+          required
+        />
+        <StyledLabel htmlFor="input-event-name">Event Name *</StyledLabel>
+      </InputContainer>
+      <InputContainer>
+        <StyledTextArea id="input-description" name="description" rows="5" defaultValue={defaultEvent?.description} />
+        <StyledLabel desc htmlFor="input-description">
+          Description
+        </StyledLabel>
+      </InputContainer>
 
       <DatePicker
         label="Date"
@@ -94,7 +99,6 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
         onChange={(newTime) => {
           setEndTime(newTime);
         }}
-        onAcc
         renderInput={(params) => (
           <TextField
             {...params}
@@ -105,9 +109,10 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
         )}
       />
 
-      <label htmlFor="input-location">Location</label>
-      <input type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
-
+      <InputContainer>
+        <StyledInput type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
+        <StyledLabel htmlFor="input-location">Location</StyledLabel>
+      </InputContainer>
       <Button type="submit" variant="submit">
         {buttonContent}
       </Button>
@@ -118,12 +123,87 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
 const StyledForm = styled.form`
   margin: 10px auto;
   display: grid;
-  gap: 8px;
+  gap: 12px;
   width: 90vw;
 
   button {
     justify-self: center;
   }
+
+  input,
+  textarea {
+    font-family: Montserrat, sans-serif;
+  }
+
+  label {
+    font-family: Montserrat, sans-serif;
+    color: var(--text-color);
+  }
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  padding: 16px;
+  background-color: transparent;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #1976d2;
+  }
+  &:not(input[value=""]) + label {
+    height: fit-content;
+    font-size: 12px;
+    transform: translate(0, -50%);
+    background: var(--background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    transition: all 0.2s ease-out;
+  }
+`;
+const StyledTextArea = styled.textarea`
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  padding: 16px;
+  background-color: transparent;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #1976d2;
+  }
+  &:not(textarea[value=""]) + label {
+    height: fit-content;
+    font-size: 12px;
+    top: 0;
+    transform: translate(0, -50%);
+    background: var(--background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    transition: all 0.15s ease-out;
+  }
+`;
+
+const StyledLabel = styled.label`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+
+  ${({ desc }) =>
+    desc &&
+    css`
+      top: 1rem;
+      align-items: unset;
+    `}
 `;
 
 export default EventForm;

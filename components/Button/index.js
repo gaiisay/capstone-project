@@ -32,11 +32,11 @@ const StyledButton = styled.button`
   ${({ variant }) =>
     variant === "delete" &&
     css`
-      position: absolute;
+      position: fixed;
       top: 18px;
       right: 2rem;
       background-color: transparent;
-      z-index: 10;
+      z-index: 5;
     `}
   ${({ variant }) =>
     variant === "accept" &&

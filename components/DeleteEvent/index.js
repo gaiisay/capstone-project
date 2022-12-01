@@ -31,7 +31,7 @@ function DeleteEvent({ deleteEvent }) {
 }
 
 const Modal = styled.div`
-  background: linear-gradient(0deg, rgba(0, 90, 193, 0.05), rgba(0, 90, 193, 0.05)), #fefbff;
+  background: var(--background-color);
   position: fixed;
   top: 30%;
   width: 400px;

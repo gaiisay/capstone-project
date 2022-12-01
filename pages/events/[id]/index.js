@@ -62,6 +62,8 @@ function EventDetails() {
 }
 
 const Wrapper = styled.div`
+  position: sticky;
+  top: 70px;
   align-self: stretch;
   padding: 0 1rem;
   justify-items: center;
@@ -82,18 +84,16 @@ const Wrapper = styled.div`
   }
 `;
 const Background = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 0;
   background-image: url("/ball-closeup.jpg");
   background-color: var(--background-color);
   background-position: center;
   background-size: cover;
   opacity: 0.25;
-  /*   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
- */
 `;
 
 export default EventDetails;

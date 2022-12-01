@@ -10,7 +10,7 @@ function Header() {
 
   if (pathname.startsWith("/events/")) {
     return (
-      <StyledHeader isSubpage>
+      <StyledHeader isSubpage pathname={pathname}>
         <StyledLink href={pathname.includes("edit") ? `/events/${id}` : "/"} variant="back">
           <Svg variant="back" />
         </StyledLink>
@@ -20,14 +20,19 @@ function Header() {
   }
 
   return (
-    <StyledHeader>
+    <StyledHeader pathname={pathname}>
       <StyledH1>{pathname === "/" ? "Events" : pathname === "/team" ? "Team" : ""}</StyledH1>
     </StyledHeader>
   );
 }
 
 const StyledHeader = styled.header`
-  position: absolute;
+  position: sticky;
+  background: ${({ pathname }) =>
+    pathname.includes("edit") || pathname.includes("add") || pathname === "/" || pathname === "/team"
+      ? "var(--background-color)"
+      : "transparent"};
+  z-index: 2;
   top: 0;
   width: 100%;
   height: 70px;

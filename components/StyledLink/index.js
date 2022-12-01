@@ -26,7 +26,7 @@ const StyledLink = styled(Link)`
     css`
       background-color: transparent;
       border: none;
-      z-index: 10;
+      z-index: 20;
     `}
 
   ${({ variant }) =>
