@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { getBackPath } from "../../utils/helpers";
 import StyledLink from "../StyledLink";
 import Svg from "../Svg";
