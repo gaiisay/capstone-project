@@ -43,6 +43,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
           type="text"
           id="input-event-name"
           name="name"
+          placeholder=" "
           pattern=".*[\S]+.*"
           defaultValue={defaultEvent?.name}
           maxLength={50}
@@ -51,7 +52,13 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
         <StyledLabel htmlFor="input-event-name">Event Name *</StyledLabel>
       </InputContainer>
       <InputContainer>
-        <StyledTextArea id="input-description" name="description" rows="5" defaultValue={defaultEvent?.description} />
+        <StyledTextArea
+          id="input-description"
+          name="description"
+          placeholder=" "
+          rows="5"
+          defaultValue={defaultEvent?.description}
+        />
         <StyledLabel desc htmlFor="input-description">
           Description
         </StyledLabel>
@@ -110,7 +117,13 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
       />
 
       <InputContainer>
-        <StyledInput type="text" id="input-location" name="location" defaultValue={defaultEvent?.location} />
+        <StyledInput
+          type="text"
+          id="input-location"
+          name="location"
+          placeholder=" "
+          defaultValue={defaultEvent?.location}
+        />
         <StyledLabel htmlFor="input-location">Location</StyledLabel>
       </InputContainer>
       <Button type="submit" variant="submit">
@@ -156,7 +169,8 @@ const StyledInput = styled.input`
     outline: none;
     border: 2px solid #1976d2;
   }
-  &:not(input[value=""]) + label {
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
     height: fit-content;
     font-size: 12px;
     transform: translate(0, -50%);
@@ -177,7 +191,8 @@ const StyledTextArea = styled.textarea`
     outline: none;
     border: 2px solid #1976d2;
   }
-  &:not(textarea[value=""]) + label {
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
     height: fit-content;
     font-size: 12px;
     top: 0;
@@ -185,7 +200,7 @@ const StyledTextArea = styled.textarea`
     background: var(--background-color);
     padding-left: 4px;
     padding-right: 4px;
-    transition: all 0.15s ease-out;
+    transition: all 0.2s ease-out;
   }
 `;
 
@@ -197,6 +212,7 @@ const StyledLabel = styled.label`
   display: flex;
   align-items: center;
   pointer-events: none;
+  transition: all 0.2s ease-out;
 
   ${({ desc }) =>
     desc &&
