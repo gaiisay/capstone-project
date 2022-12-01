@@ -23,9 +23,6 @@ function EventDetails() {
       <Wrapper>
         <h2>{player.name}</h2>
       </Wrapper>
-      <StyledLink href={`/events/${id}/edit`} variant="fab">
-        <Svg variant="edit" size="30" />
-      </StyledLink>
     </>
   );
 }
