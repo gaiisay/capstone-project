@@ -25,43 +25,45 @@ const StyledButton = styled.button`
       padding: 0.5rem 1rem;
       gap: 8px;
       border-radius: 100px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadow);
+      background: var(--fab-color);
     `}
 
   ${({ variant }) =>
     variant === "delete" &&
     css`
-      position: absolute;
-      top: 1rem;
+      position: fixed;
+      top: 18px;
       right: 2rem;
       background-color: transparent;
+      z-index: 5;
     `}
   ${({ variant }) =>
     variant === "accept" &&
     css`
       width: 30px;
       height: 30px;
-      background: #0ba95b;
+      background: var(--green);
       border-radius: 100px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadow);
     `}
   ${({ variant }) =>
     variant === "cancel" &&
     css`
       width: 30px;
       height: 30px;
-      background: #ed203d;
+      background: var(--red);
       border-radius: 100px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadow);
     `}
   ${({ variant }) =>
     variant === "unassign" &&
     css`
       width: 30px;
       height: 30px;
-      background: #fcba28;
+      background: var(--yellow);
       border-radius: 100px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadow);
     `}
 
   ${({ variant }) =>
@@ -69,9 +71,9 @@ const StyledButton = styled.button`
     css`
       min-width: 50%;
       padding: 0.5rem 1rem;
-      background: ${({ children }) => (children.includes("NO") ? "#ed203d" : "#0ba95b")};
+      background: ${({ children }) => (children.includes("NO") ? "var(--red)" : "var(--green)")};
 
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadow);
       border-radius: 100px;
     `}
 `;

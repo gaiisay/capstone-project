@@ -38,13 +38,13 @@ const StyledSvg = styled.svg`
       width: 1.5rem;
       height: 1.5rem;
     `}
-
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: #d8e2ff;
-      border-radius: 16px;
-    `}
+  ${({ variant }) =>
+    variant === "accept" || variant === "cancel" || variant === "unassign"
+      ? css`
+          width: 1rem;
+          height: 1rem;
+        `
+      : null}
 `;
 
 const SvgContainer = styled.div`
@@ -66,10 +66,17 @@ const SvgContainer = styled.div`
       height: 32px;
     `}
 
+    ${({ variant }) =>
+    variant === "accept" || variant === "cancel" || variant === "unassign"
+      ? css`
+          padding: 10px;
+        `
+      : null}
+
   ${({ active }) =>
     active &&
     css`
-      background-color: #d8e2ff;
+      background-color: var(--active-nav-color);
       border-radius: 16px;
       transition: 0.3s;
     `}

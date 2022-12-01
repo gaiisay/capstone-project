@@ -36,7 +36,7 @@ describe("Button", () => {
   });
 
   it("should have a red background when text is NO", () => {
-    const expectedColor = "#ed203d";
+    const expectedColor = "var(--red)";
     render(
       <Button type="button" variant="standard">
         NO
@@ -49,7 +49,7 @@ describe("Button", () => {
   });
 
   it("should have a green background when text is YES", () => {
-    const expectedColor = "#0ba95b";
+    const expectedColor = "var(--green)";
     render(
       <Button type="button" variant="standard">
         YES

@@ -64,7 +64,8 @@ function PlayerAssignList({ eventId }) {
   );
 
   return (
-    <>
+    <Wrapper>
+      <h2>Attendance</h2>
       <StyledH3>
         Unassigned <span>{unassignedPlayers.length}</span>
       </StyledH3>
@@ -83,19 +84,39 @@ function PlayerAssignList({ eventId }) {
       {cancelledPlayers.map((player) => (
         <PlayerCard key={player.id} player={player} minimal assignPlayer={assignPlayer} category="cancelled" />
       ))}
-    </>
+    </Wrapper>
   );
 }
 
 const StyledH3 = styled.h3`
-  color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
-  margin: 1rem 0 0.5rem 0;
+  color: ${({ accepted, cancelled }) => (accepted ? "var(--green)" : cancelled ? "var(--red)" : "var(--yellow)")};
+  margin: 1rem 0 0 0;
+  font-variation-settings: "wght" 600;
+
   span {
     margin-left: 1rem;
-    color: white;
-    background-color: ${({ accepted, cancelled }) => (accepted ? "#0ba95b" : cancelled ? "#ed203d" : "#fcba28")};
+    color: #fffbff;
+    background-color: ${({ accepted, cancelled }) =>
+      accepted ? "var(--green)" : cancelled ? "var(--red)" : "var(--yellow)"};
     padding: 0.2rem 0.6rem;
     border-radius: 50px;
+  }
+`;
+
+const Wrapper = styled.div`
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  background: var(--background-color);
+  z-index: 5;
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 28px 28px 0px 0px;
+
+  h2 {
+    text-align: center;
+    font-variation-settings: "wght" 600;
   }
 `;
 

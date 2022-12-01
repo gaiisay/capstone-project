@@ -11,7 +11,7 @@ jest.mock("next/router", () => require("next-router-mock"));
 
 describe("Button", () => {
   it("returns all inputs", async () => {
-    const todayShort = new Date().toLocaleDateString("de-DE");
+    const todayShort = new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
     const todayLong = new Date().toDateString();
 
     const sendEvent = jest.fn();

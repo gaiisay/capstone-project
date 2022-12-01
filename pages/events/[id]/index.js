@@ -38,19 +38,21 @@ function EventDetails() {
 
   return (
     <>
+      <Background />
       <DeleteEvent deleteEvent={deleteEvent} />
       <Wrapper>
         <h2>{event.name}</h2>
-        <h3>Your team</h3>
         <p>
-          <time>{eventDate} </time>
-          <time>{eventTime}</time>
+          <time>{eventDate}</time> &nbsp; <time>{eventTime}</time>
         </p>
-        <p>Location: {eventLocation}</p>
-        <p>Description: {eventDescription}</p>
 
-        <PlayerAssignList minimal eventId={event.id} />
+        <h3>Location</h3>
+        <p>{eventLocation}</p>
+
+        <h3>Description</h3>
+        <p>{eventDescription}</p>
       </Wrapper>
+      <PlayerAssignList minimal eventId={event.id} />
 
       <StyledLink href={`/events/${id}/edit`} variant="fab">
         <Svg variant="edit" size="30" />
@@ -60,10 +62,38 @@ function EventDetails() {
 }
 
 const Wrapper = styled.div`
-  align-self: flex-start;
-  padding: 1rem 2rem;
+  position: sticky;
+  top: 70px;
+  align-self: stretch;
+  padding: 0 1rem;
+  justify-items: center;
+  text-align: center;
   display: grid;
   gap: 5px;
+  height: 100%;
+  z-index: 5;
+
+  h2,
+  h3 {
+    font-variation-settings: "wght" 700;
+  }
+
+  p,
+  time {
+    font-variation-settings: "wght" 500;
+  }
+`;
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url("/ball-closeup.jpg");
+  background-color: var(--background-color);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.25;
 `;
 
 export default EventDetails;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "../Button";
 
 function PlayerCard({ player, minimal, assignPlayer, category }) {
@@ -31,7 +31,6 @@ function PlayerCard({ player, minimal, assignPlayer, category }) {
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
           </Wrapper>
-
           <h3>
             {player.age} | {player.position}
           </h3>
@@ -42,17 +41,18 @@ function PlayerCard({ player, minimal, assignPlayer, category }) {
 }
 
 const SimpleCard = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   font-size: 0.7rem;
   width: 90vw;
   max-width: 500px;
   padding: 1rem;
-  background-color: #f27507;
+  background: var(--card-color);
+  opacity: 95%;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 `;
 
 const Card = styled.div`
@@ -66,34 +66,42 @@ const Card = styled.div`
   max-width: 500px;
   padding: 1rem;
   margin: 0.3rem 0;
-  background-color: #f27507;
+  background: var(--card-color);
+  opacity: 95%;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 `;
 
 const StyledImg = styled(Image)`
   grid-row: span 2;
-  border-radius: 50px;
+  border-radius: inherit;
   justify-self: center;
 `;
 
 const StyledParagraph = styled.p`
   padding: 0.3rem 0.5rem;
-  background-color: ${({ active }) => (active ? "cornflowerblue" : "")};
+  background-color: cornflowerblue;
   width: fit-content;
   border-radius: 20px;
+
+  ${({ active }) =>
+    !active &&
+    css`
+      display: none;
+    `}
 `;
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 10px;
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   gap: 0.5rem;
+  justify-self: flex-end;
 `;
 
 export default PlayerCard;
