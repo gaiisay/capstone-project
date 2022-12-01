@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import Button from "../Button";
+import StyledLink from "../StyledLink";
 
 function PlayerCard({ player, minimal, assignPlayer, category }) {
   return (
@@ -25,16 +26,18 @@ function PlayerCard({ player, minimal, assignPlayer, category }) {
           </Wrapper>
         </SimpleCard>
       ) : (
-        <Card>
-          <StyledImg src={player.imageSrc} width={50} height={50} alt={`image of ${player.name}`} />
-          <Wrapper>
-            <h2>{player.name}</h2>
-            <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
-          </Wrapper>
-          <h3>
-            {player.age} | {player.position}
-          </h3>
-        </Card>
+        <StyledLink href={`/team/${player.id}`}>
+          <Card>
+            <StyledImg src={player.imageSrc} width={50} height={50} alt={`image of ${player.name}`} />
+            <Wrapper>
+              <h2>{player.name}</h2>
+              <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
+            </Wrapper>
+            <h3>
+              {player.age} | {player.position}
+            </h3>
+          </Card>
+        </StyledLink>
       )}
     </>
   );
