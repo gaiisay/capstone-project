@@ -10,7 +10,7 @@ function Header() {
   const { id } = useRouter().query;
   const backPath = getBackPath(pathname, id);
 
-  if (pathname.startsWith("/events/")) {
+  if (pathname.startsWith("/events/") || pathname.startsWith("/team/")) {
     return (
       <StyledHeader isSubpage pathname={pathname}>
         <StyledLink href={backPath === "/events" ? "/" : backPath} variant="back">
@@ -31,7 +31,7 @@ function Header() {
 const StyledHeader = styled.header`
   position: sticky;
   background: ${({ pathname }) =>
-    pathname.includes("edit") || pathname.includes("add") || pathname === "/" || pathname === "/team"
+    pathname.includes("edit") || pathname.includes("add") || pathname === "/" || pathname.includes("/team")
       ? "var(--background-color)"
       : "transparent"};
   z-index: 2;

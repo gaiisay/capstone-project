@@ -146,6 +146,7 @@ const StyledForm = styled.form`
   input,
   textarea {
     font-family: Montserrat, sans-serif;
+    font-size: 1rem;
   }
 
   label {
@@ -169,6 +170,10 @@ const StyledInput = styled.input`
     outline: none;
     border: 2px solid #1976d2;
   }
+
+  &:focus + label {
+    color: #1976d2;
+  }
   &:focus + label,
   &:not(:placeholder-shown) + label {
     height: fit-content;
@@ -190,6 +195,9 @@ const StyledTextArea = styled.textarea`
   &:focus {
     outline: none;
     border: 2px solid #1976d2;
+  }
+  &:focus + label {
+    color: #1976d2;
   }
   &:focus + label,
   &:not(:placeholder-shown) + label {
