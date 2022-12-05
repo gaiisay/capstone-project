@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     html,
     body {
         font-family: Montserrat, sans-serif;
-        
+          background: var(--background-color);
     }
 
 

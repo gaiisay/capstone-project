@@ -1,17 +1,18 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { getBackPath } from "../../utils/helpers";
 import StyledLink from "../StyledLink";
 import Svg from "../Svg";
 
 function Header() {
   const { pathname } = useRouter();
   const { id } = useRouter().query;
+  const backPath = getBackPath(pathname, id);
 
-  if (pathname.startsWith("/events/")) {
+  if (pathname.startsWith("/events/") || pathname.startsWith("/team/")) {
     return (
       <StyledHeader isSubpage pathname={pathname}>
-        <StyledLink href={pathname.includes("edit") ? `/events/${id}` : "/"} variant="back">
+        <StyledLink href={backPath === "/events" ? "/" : backPath} variant="back">
           <Svg variant="back" />
         </StyledLink>
         <StyledH1>{pathname.includes("edit") ? "Edit Event" : pathname.includes("add") ? "Create Event" : ""}</StyledH1>
