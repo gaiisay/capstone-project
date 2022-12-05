@@ -8,7 +8,7 @@ function PlayerCard({ player, minimal, assignPlayer, category }) {
     <>
       {minimal ? (
         <SimpleCard>
-          <StyledImg src={player.imageSrc} width={30} height={30} alt={`image of ${player.name}`} />
+          <StyledImg src={player.imageSrc} width={40} height={30} alt={`image of ${player.name}`} />
           <Wrapper>
             <h2>{player.name}</h2>
             <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>
@@ -28,7 +28,7 @@ function PlayerCard({ player, minimal, assignPlayer, category }) {
       ) : (
         <StyledLink href={`/team/${player.id}`}>
           <Card>
-            <StyledImg src={player.imageSrc} width={50} height={50} alt={`image of ${player.name}`} />
+            <StyledImg src={player.imageSrc} width={60} height={50} alt={`image of ${player.name}`} />
             <Wrapper>
               <h2>{player.name}</h2>
               <StyledParagraph active={!player.role ? false : true}>{player.role}</StyledParagraph>

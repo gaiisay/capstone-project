@@ -1,12 +1,8 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import useSWR from "swr";
-import DeleteEvent from "../../../components/DeleteEvent";
-import PlayerAssignList from "../../../components/PlayerAssignList";
-import StyledLink from "../../../components/StyledLink";
-import Svg from "../../../components/Svg";
 import { fetcher } from "../../../utils/api";
-import { formatDate, formatRenderTime } from "../../../utils/helpers";
 
 function EventDetails() {
   const router = useRouter();
@@ -20,24 +16,54 @@ function EventDetails() {
 
   return (
     <>
+      <Background />
       <Wrapper>
+        <StyledImg src={player.imageSrc} width={140} height={100} alt={`image of ${player.name}`} />
         <h2>{player.name}</h2>
+        <p>{player.role}</p>
+        <h3>
+          {player.age} | {player.position}
+        </h3>
       </Wrapper>
     </>
   );
 }
 
+const StyledImg = styled(Image)`
+  border-radius: 10px;
+  justify-self: center;
+  grid-row: span 3;
+  margin-bottom: 1rem;
+`;
+
 const Wrapper = styled.div`
-  position: sticky;
-  top: 70px;
-  align-self: stretch;
-  padding: 0 1rem;
-  justify-items: center;
-  text-align: center;
+  padding: 2rem 1rem;
   display: grid;
-  gap: 5px;
-  height: 100%;
+  justify-items: center;
+  gap: 0.5rem;
   z-index: 5;
+
+  h2 {
+    font-variation-settings: "wght" 700;
+  }
+
+  h3,
+  p {
+    font-variation-settings: "wght" 500;
+  }
+`;
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url("/ball-closeup.jpg");
+  background-color: var(--background-color);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.25;
 `;
 
 export default EventDetails;

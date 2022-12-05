@@ -30,7 +30,7 @@ function Header() {
 const StyledHeader = styled.header`
   position: sticky;
   background: ${({ pathname }) =>
-    pathname.includes("edit") || pathname.includes("add") || pathname === "/" || pathname.includes("/team")
+    pathname.includes("edit") || pathname.includes("add") || pathname === "/" || pathname === "/team"
       ? "var(--background-color)"
       : "transparent"};
   z-index: 2;
