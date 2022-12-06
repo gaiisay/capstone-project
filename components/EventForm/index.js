@@ -122,6 +122,7 @@ function EventForm({ defaultEvent, sendEvent, buttonContent }) {
           id="input-location"
           name="location"
           placeholder=" "
+          pattern=".*[\S]+.*"
           defaultValue={defaultEvent?.location}
         />
         <StyledLabel htmlFor="input-location">Location</StyledLabel>

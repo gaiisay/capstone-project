@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "cloudinary-react";
 import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
@@ -18,7 +18,12 @@ function EventDetails() {
     <>
       <Background />
       <Wrapper>
-        <StyledImg src={player.imageSrc} width={140} height={100} alt={`image of ${player.name}`} />
+        <StyledImg
+          publicId={player.imageSrc ? player.imageSrc : "placeholder_o9m05l"}
+          width={100}
+          height={100}
+          alt={`image of ${player.name}`}
+        />
         <h2>{player.name}</h2>
         <p>{player.role}</p>
         <h3>

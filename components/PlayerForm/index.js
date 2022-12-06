@@ -1,12 +1,27 @@
 import styled, { css } from "styled-components";
 import Button from "../Button";
+import { Image, Transformation } from "cloudinary-react";
+import { useState } from "react";
 
 function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
-  function handleSubmit(event) {
+  const [image, setImage] = useState(defaultPlayer?.imageSrc);
+  console.log(image);
+
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+
+    if (data.imageSrc.name !== "") {
+      const response = await fetch("/api/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const image = await response.json();
+      const publicId = image.publicId;
+      data.imageSrc = publicId;
+    }
 
     sendPlayer(data);
   }
@@ -15,53 +30,64 @@ function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
       <InputContainer>
         <StyledInput
           type="text"
-          id="input-event-name"
+          id="input-player-name"
           name="name"
           placeholder=" "
           pattern=".*[\S]+.*"
-          defaultValue={defaultPlayer.name}
+          defaultValue={defaultPlayer?.name}
           maxLength={50}
           required
         />
-        <StyledLabel htmlFor="input-event-name">Player Name *</StyledLabel>
+        <StyledLabel htmlFor="input-player-name">Player Name *</StyledLabel>
+      </InputContainer>
+      <InputContainer>
+        <StyledInput
+          type="number"
+          id="input-player-age"
+          name="age"
+          placeholder=" "
+          pattern=".*[\S]+.*"
+          defaultValue={defaultPlayer?.age}
+          max={99}
+          min={1}
+          required
+        />
+        <StyledLabel htmlFor="input-player-age">Age *</StyledLabel>
       </InputContainer>
       <InputContainer>
         <StyledInput
           type="text"
-          id="input-event-name"
-          name="name"
+          id="input-player-position"
+          name="position"
           placeholder=" "
           pattern=".*[\S]+.*"
-          defaultValue={defaultPlayer.age}
-          maxLength={50}
+          defaultValue={defaultPlayer?.position}
+          maxLength={20}
           required
         />
-        <StyledLabel htmlFor="input-event-name">Age *</StyledLabel>
+        <StyledLabel htmlFor="input-player-position">Position *</StyledLabel>
       </InputContainer>
       <InputContainer>
         <StyledInput
           type="text"
-          id="input-event-name"
-          name="name"
+          id="input-player-role"
+          name="role"
           placeholder=" "
           pattern=".*[\S]+.*"
-          defaultValue={defaultPlayer.position}
-          maxLength={50}
-          required
+          defaultValue={defaultPlayer?.role}
+          maxLength={25}
         />
-        <StyledLabel htmlFor="input-event-name">Position *</StyledLabel>
+        <StyledLabel htmlFor="input-player-role">Role</StyledLabel>
       </InputContainer>
-      <InputContainer>
-        <StyledInput
-          type="text"
-          id="input-event-name"
-          name="name"
-          placeholder=" "
-          defaultValue={defaultPlayer.role}
-          maxLength={50}
-        />
-        <StyledLabel htmlFor="input-event-name">Special Role</StyledLabel>
-      </InputContainer>
+      <StyledUploadInput
+        value={image}
+        onChange={(newImage) => setImage(newImage.target.value)}
+        type="file"
+        id="input-player-image"
+        name="imageSrc"
+      />
+      <StyledUploadLabel htmlFor="input-player-image">Upload Image</StyledUploadLabel>
+      <p>{image}</p>
 
       <Button type="submit" variant="submit">
         {buttonContent}
@@ -139,6 +165,19 @@ const StyledLabel = styled.label`
       top: 1rem;
       align-items: unset;
     `}
+`;
+
+const StyledUploadInput = styled.input`
+  display: none;
+`;
+const StyledUploadLabel = styled.label`
+  margin-top: 0.2rem;
+  background: transparent;
+  border: 1px solid #c0c0c0;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
 `;
 
 export default PlayerForm;

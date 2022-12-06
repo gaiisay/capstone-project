@@ -24,7 +24,7 @@ function Team() {
       {players.map((player) => (
         <PlayerCard key={player.id} player={player} />
       ))}
-      <StyledLink href="/events/add" variant="fab">
+      <StyledLink href="/team/add" variant="fab">
         <Svg variant="add" size="30" />
       </StyledLink>
     </>

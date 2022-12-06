@@ -32,6 +32,19 @@ async function updatePlayersWhenEventDeleted(id) {
   return updatedPlayers;
 }
 
-Player.updateMany;
+async function createPlayer(player) {
+  await connectToDatabase();
 
-export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted };
+  const createdPlayer = await Player.create({
+    ...player,
+    id: crypto.randomUUID(),
+  });
+
+  return {
+    ...createdPlayer.toObject(),
+    _id: undefined,
+    __v: undefined,
+  };
+}
+
+export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted, createPlayer };
