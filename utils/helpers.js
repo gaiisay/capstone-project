@@ -15,11 +15,4 @@ function formatOnlyTime(time) {
   return new Date(time).toTimeString();
 }
 
-function getBackPath(pathname, id) {
-  const pathArray = pathname.split("/");
-  pathArray.pop();
-  pathArray.at(-1) === "[id]" ? (pathArray[pathArray.length - 1] = id) : null;
-  return pathArray.join("/");
-}
-
-export { formatDate, formatRenderTime, formatOnlyTime, getBackPath };
+export { formatDate, formatRenderTime, formatOnlyTime };

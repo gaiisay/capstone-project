@@ -22,14 +22,6 @@ const StyledLink = styled(Link)`
     `}
 
   ${({ variant }) =>
-    variant === "back" &&
-    css`
-      background-color: transparent;
-      border: none;
-      z-index: 20;
-    `}
-
-  ${({ variant }) =>
     variant === "nav" &&
     css`
       display: flex;
