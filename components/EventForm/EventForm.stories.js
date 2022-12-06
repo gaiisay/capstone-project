@@ -16,15 +16,15 @@ const Template = (args) => (
   </LocalizationProvider>
 );
 
-export const CreateForm = Template.bind({});
-CreateForm.args = {
+export const CreateEventForm = Template.bind({});
+CreateEventForm.args = {
   defaultEvent: {},
   addEvent: action("form submitted"),
   buttonContent: "Create",
 };
 
-export const EditForm = Template.bind({});
-EditForm.args = {
+export const EditEventForm = Template.bind({});
+EditEventForm.args = {
   defaultEvent: {
     id: "c830d24f-2c14-4089-acca-e8ff639552c1",
     name: "Training",
