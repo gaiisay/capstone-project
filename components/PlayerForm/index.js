@@ -1,11 +1,9 @@
 import styled, { css } from "styled-components";
 import Button from "../Button";
-import { Image, Transformation } from "cloudinary-react";
 import { useState } from "react";
 
 function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
   const [image, setImage] = useState(defaultPlayer?.imageSrc);
-  console.log(image);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -21,6 +19,8 @@ function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
       const image = await response.json();
       const publicId = image.publicId;
       data.imageSrc = publicId;
+    } else {
+      data.imageSrc = "";
     }
 
     sendPlayer(data);
