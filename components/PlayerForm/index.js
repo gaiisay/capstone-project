@@ -3,7 +3,7 @@ import Button from "../Button";
 import { useState } from "react";
 
 function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
-  const [image, setImage] = useState(defaultPlayer?.imageSrc);
+  const [image, setImage] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -19,6 +19,8 @@ function PlayerForm({ defaultPlayer, sendPlayer, buttonContent }) {
       const image = await response.json();
       const publicId = image.publicId;
       data.imageSrc = publicId;
+    } else if (defaultPlayer) {
+      data.imageSrc = defaultPlayer.imageSrc;
     } else {
       data.imageSrc = "";
     }

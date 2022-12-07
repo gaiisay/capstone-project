@@ -17,6 +17,8 @@ function Header() {
             ? "Create Event"
             : pathname.includes("team/add")
             ? "Create Player"
+            : pathname.includes("team/edit")
+            ? "Edit Player"
             : ""}
         </StyledH1>
       </StyledHeader>

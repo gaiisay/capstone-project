@@ -18,7 +18,7 @@ describe("Button", () => {
       age: inputAge,
       position: expectedPosition,
       role: expectedRole,
-      imageSrc: new File([], ""),
+      imageSrc: "",
     };
 
     render(<PlayerForm sendPlayer={addPlayer} buttonContent="Create" />);

@@ -2,6 +2,8 @@ import { Image } from "cloudinary-react";
 import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
+import StyledLink from "../../../components/StyledLink";
+import Svg from "../../../components/Svg";
 import { fetcher } from "../../../utils/api";
 
 function EventDetails() {
@@ -30,6 +32,9 @@ function EventDetails() {
           {player.age} | {player.position}
         </h3>
       </Wrapper>
+      <StyledLink href={`/team/${id}/edit`} variant="fab">
+        <Svg variant="edit" size="30" />
+      </StyledLink>
     </>
   );
 }
