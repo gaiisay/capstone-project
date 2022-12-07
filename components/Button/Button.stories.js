@@ -44,3 +44,9 @@ UnassignButton.args = {
   variant: "unassign",
   children: "",
 };
+export const BackButton = Template.bind({});
+BackButton.args = {
+  type: "button",
+  variant: "back",
+  children: "",
+};

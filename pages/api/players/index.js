@@ -1,4 +1,4 @@
-import { getAllPlayers, updatePlayersWhenEventDeleted } from "../../../services/playerService";
+import { createPlayer, getAllPlayers, updatePlayersWhenEventDeleted } from "../../../services/playerService";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -8,7 +8,12 @@ export default async function handler(req, res) {
     const updatedPlayer = await updatePlayersWhenEventDeleted(req.body);
 
     res.status(200).json(updatedPlayer);
+  } else if (req.method === "POST") {
+    const player = JSON.parse(req.body);
+
+    const createdPlayer = await createPlayer(player);
+    res.status(201).json(createdPlayer);
   } else {
-    res.status(405).setHeader("Allow", ["GET", "PATCH"]).send();
+    res.status(405).setHeader("Allow", ["GET", "PATCH", "POST"]).send();
   }
 }

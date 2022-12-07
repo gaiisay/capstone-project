@@ -1,5 +1,6 @@
 import Player from "../models/Player";
 import connectToDatabase from "../utils/dbConnect";
+import crypto from "crypto";
 
 async function getAllPlayers() {
   await connectToDatabase();
@@ -32,6 +33,19 @@ async function updatePlayersWhenEventDeleted(id) {
   return updatedPlayers;
 }
 
-Player.updateMany;
+async function createPlayer(player) {
+  await connectToDatabase();
 
-export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted };
+  const createdPlayer = await Player.create({
+    ...player,
+    id: crypto.randomUUID(),
+  });
+
+  return {
+    ...createdPlayer.toObject(),
+    _id: undefined,
+    __v: undefined,
+  };
+}
+
+export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted, createPlayer };

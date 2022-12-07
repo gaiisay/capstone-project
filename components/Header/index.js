@@ -1,21 +1,24 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { getBackPath } from "../../utils/helpers";
-import StyledLink from "../StyledLink";
-import Svg from "../Svg";
+import Button from "../Button";
 
 function Header() {
-  const { pathname } = useRouter();
-  const { id } = useRouter().query;
-  const backPath = getBackPath(pathname, id);
+  const router = useRouter();
+  const { pathname } = router;
 
   if (pathname.startsWith("/events/") || pathname.startsWith("/team/")) {
     return (
       <StyledHeader isSubpage pathname={pathname}>
-        <StyledLink href={backPath === "/events" ? "/" : backPath} variant="back">
-          <Svg variant="back" />
-        </StyledLink>
-        <StyledH1>{pathname.includes("edit") ? "Edit Event" : pathname.includes("add") ? "Create Event" : ""}</StyledH1>
+        <Button type="button" variant="back" onClick={() => router.back()} />
+        <StyledH1>
+          {pathname.includes("events/edit")
+            ? "Edit Event"
+            : pathname.includes("events/add")
+            ? "Create Event"
+            : pathname.includes("team/add")
+            ? "Create Player"
+            : ""}
+        </StyledH1>
       </StyledHeader>
     );
   }

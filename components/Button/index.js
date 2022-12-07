@@ -66,6 +66,14 @@ const StyledButton = styled.button`
       box-shadow: var(--box-shadow);
     `}
 
+    ${({ variant }) =>
+    variant === "back" &&
+    css`
+      background-color: transparent;
+      border: none;
+      z-index: 20;
+    `}
+
   ${({ variant }) =>
     variant === "standard" &&
     css`

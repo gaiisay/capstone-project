@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { CloudinaryContext } from "cloudinary-react";
 
 import PlayerCard from ".";
 
@@ -11,10 +12,14 @@ describe("PlayerCard", () => {
       age: 26,
       position: "Guard",
       role: "Captain",
-      imageSrc: "/gai.jpeg",
+      imageSrc: "hsnd0bnj05iovzwvpa8f",
     };
 
-    render(<PlayerCard player={player} />);
+    render(
+      <CloudinaryContext cloudName="dfaptkc7d">
+        <PlayerCard player={player} />
+      </CloudinaryContext>
+    );
 
     const name = screen.getByText(/gai/i);
     const age = screen.getByText(/26/i);
@@ -33,10 +38,14 @@ describe("PlayerCard", () => {
       age: 26,
       position: "Guard",
       role: "Captain",
-      imageSrc: "/gai.jpeg",
+      imageSrc: "hsnd0bnj05iovzwvpa8f",
     };
 
-    render(<PlayerCard player={player} minimal />);
+    render(
+      <CloudinaryContext cloudName="dfaptkc7d">
+        <PlayerCard player={player} minimal />
+      </CloudinaryContext>
+    );
 
     const name = screen.getByText(/gai/i);
     const age = screen.queryByText(/26/i);

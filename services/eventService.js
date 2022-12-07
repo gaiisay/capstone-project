@@ -1,5 +1,6 @@
 import Event from "../models/Event";
 import connectToDatabase from "../utils/dbConnect";
+import crypto from "crypto";
 
 async function getAllEvents() {
   await connectToDatabase();

@@ -13,20 +13,14 @@ const StyledLink = styled(Link)`
       position: fixed;
       padding: 0.8rem;
       bottom: 50px;
-      right: calc(50% - width);
+      right: 50%;
+      transform: translateX(50%);
+
       background: var(--fab-color);
 
       box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
       border-radius: 50%;
       z-index: 50;
-    `}
-
-  ${({ variant }) =>
-    variant === "back" &&
-    css`
-      background-color: transparent;
-      border: none;
-      z-index: 20;
     `}
 
   ${({ variant }) =>

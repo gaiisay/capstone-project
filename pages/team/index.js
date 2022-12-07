@@ -4,6 +4,8 @@ import useSWR from "swr";
 import { fetcher } from "../../utils/api";
 import teamLogo from "../../public/teamlogo.png";
 import PlayerCard from "../../components/PlayerCard";
+import StyledLink from "../../components/StyledLink";
+import Svg from "../../components/Svg";
 
 function Team() {
   const { data: players, error } = useSWR("/api/players", fetcher);
@@ -22,6 +24,9 @@ function Team() {
       {players.map((player) => (
         <PlayerCard key={player.id} player={player} />
       ))}
+      <StyledLink href="/team/add" variant="fab">
+        <Svg variant="add" size="30" />
+      </StyledLink>
     </>
   );
 }
