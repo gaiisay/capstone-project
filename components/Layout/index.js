@@ -19,7 +19,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 0 70px 0;
+  padding: 20px 0 100px 0;
   background: var(--background-color);
 `;
 

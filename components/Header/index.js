@@ -44,6 +44,7 @@ const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
   align-items: center;
+  box-shadow: ${({ pathname }) => (pathname === "/" || pathname === "/team" ? "var(--box-shadow)" : "none")}; ;
 `;
 const StyledH1 = styled.h1`
   font-size: 1.7rem;

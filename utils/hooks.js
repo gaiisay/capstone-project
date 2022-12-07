@@ -1,6 +1,8 @@
 // taken from: https://github.com/pixelass/local-storage-next/blob/main/hooks/useLocalStorage.js
 
 import { useCallback, useEffect, useState } from "react";
+import create from "zustand";
+import { persist } from "zustand/middleware";
 
 /**
  * A hook to use localStorage with SSR.
@@ -21,10 +23,7 @@ export function useLocalStorage(key, initialState) {
     (callbackOrValue) => {
       setState((previousValue) => {
         // The value might be a callback with the previousValue
-        const nextValue =
-          typeof callbackOrValue === "function"
-            ? callbackOrValue(previousValue)
-            : callbackOrValue;
+        const nextValue = typeof callbackOrValue === "function" ? callbackOrValue(previousValue) : callbackOrValue;
         // Set the localStorage here (inside the original setter)
         window.localStorage.setItem(key, JSON.stringify(nextValue));
         return nextValue;
@@ -45,3 +44,14 @@ export function useLocalStorage(key, initialState) {
 
   return [state, setStateAndLocalStorage];
 }
+
+let store = (set) => ({
+  splash: true,
+
+  splashWasShown: () => set({ splash: false }),
+  resetSplash: () => set({ splash: true }),
+});
+
+store = persist(store, { name: "splashScreen" });
+
+export const useSplashStore = create(store);
