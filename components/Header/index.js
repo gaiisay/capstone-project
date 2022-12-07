@@ -11,13 +11,13 @@ function Header() {
       <StyledHeader isSubpage pathname={pathname}>
         <Button type="button" variant="back" onClick={() => router.back()} />
         <StyledH1>
-          {pathname.includes("events/edit")
+          {pathname.match(/^(?=.*\/events\b)(?=.*\/edit\b).*$/)
             ? "Edit Event"
             : pathname.includes("events/add")
             ? "Create Event"
             : pathname.includes("team/add")
             ? "Create Player"
-            : pathname.includes("team/edit")
+            : pathname.match(/^(?=.*\/team\b)(?=.*\/edit\b).*$/)
             ? "Edit Player"
             : ""}
         </StyledH1>
