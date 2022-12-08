@@ -1,12 +1,13 @@
 import { Image } from "cloudinary-react";
 import { useRouter } from "next/router";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import useSWR from "swr";
+import DeleteModal from "../../../components/DeleteModal";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
 import { fetcher } from "../../../utils/api";
 
-function EventDetails() {
+function PlayerDetails() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -16,9 +17,18 @@ function EventDetails() {
 
   if (!player) return <h1>...Loading...</h1>;
 
+  async function deletePlayer() {
+    await fetch(`/api/players/${id}`, {
+      method: "DELETE",
+    });
+
+    router.push("/team");
+  }
+
   return (
     <>
       <Background />
+      <DeleteModal deleteItem={deletePlayer} />
       <Wrapper>
         <StyledImg
           publicId={player.imageSrc ? player.imageSrc : "placeholder_o9m05l"}
@@ -76,4 +86,4 @@ const Background = styled.div`
   opacity: 0.25;
 `;
 
-export default EventDetails;
+export default PlayerDetails;

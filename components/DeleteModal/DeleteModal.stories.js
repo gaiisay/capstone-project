@@ -1,10 +1,10 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
-import DeleteEvent from ".";
+import DeleteModal from ".";
 
 export default {
   title: "Components/DeleteEvent",
-  component: DeleteEvent,
+  component: DeleteModal,
 };
 
 const Template = (args) => <DeleteEvent {...args} />;

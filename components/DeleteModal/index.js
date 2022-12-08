@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Button from "../Button";
 
-function DeleteEvent({ deleteEvent }) {
+function DeleteModal({ deleteItem }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ function DeleteEvent({ deleteEvent }) {
       {isOpen && (
         <Modal>
           <h2>Are you sure?</h2>
-          <Button type="button" variant="standard" onClick={deleteEvent}>
+          <Button type="button" variant="standard" onClick={deleteItem}>
             YES
           </Button>
           <Button type="button" variant="standard" onClick={() => setIsOpen(false)}>
@@ -47,4 +47,4 @@ const Modal = styled.div`
   border-radius: 28px;
 `;
 
-export default DeleteEvent;
+export default DeleteModal;

@@ -1,4 +1,4 @@
-import { getByText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import DeleteEvent from ".";
@@ -19,7 +19,7 @@ describe("DeleteEvent", () => {
   it("should delete event when clicking on yes", async () => {
     const deleteEvent = jest.fn();
 
-    render(<DeleteEvent deleteEvent={deleteEvent} />);
+    render(<DeleteEvent deleteItem={deleteEvent} />);
 
     const trashButton = screen.getByRole(/delete/i);
 
