@@ -11,12 +11,14 @@ function Header() {
       <StyledHeader isSubpage pathname={pathname}>
         <Button type="button" variant="back" onClick={() => router.back()} />
         <StyledH1>
-          {pathname.includes("events/edit")
+          {pathname.match(/^(?=.*\/events\b)(?=.*\/edit\b).*$/)
             ? "Edit Event"
             : pathname.includes("events/add")
             ? "Create Event"
             : pathname.includes("team/add")
             ? "Create Player"
+            : pathname.match(/^(?=.*\/team\b)(?=.*\/edit\b).*$/)
+            ? "Edit Player"
             : ""}
         </StyledH1>
       </StyledHeader>
@@ -44,6 +46,7 @@ const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
   align-items: center;
+  box-shadow: ${({ pathname }) => (pathname === "/" || pathname === "/team" ? "var(--box-shadow)" : "none")}; ;
 `;
 const StyledH1 = styled.h1`
   font-size: 1.7rem;

@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 import EventCard from "../components/EventCard";
 import StyledLink from "../components/StyledLink";
 import Svg from "../components/Svg";
 import { fetcher } from "../utils/api";
+import logo from "../public/logo2.png";
+import styled from "styled-components";
+import Image from "next/image";
+import { useSplashStore } from "../utils/hooks";
 
 export default function Home() {
   const [attendances, setAttendances] = useState([]);
+  const splash = useSplashStore((state) => state.splash);
+  const setSplashShown = useSplashStore((state) => state.splashWasShown);
+
   const { data: players } = useSWR("/api/players", fetcher);
+
   const { data: events, error } = useSWR(players ? "/api/events" : null, fetcher, {
     onSuccess: (data) => {
       for (const oneEvent of data) {
@@ -48,6 +56,12 @@ export default function Home() {
     },
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashShown();
+    }, 3500);
+  }, []);
+
   if (error) return <h1>There was an error</h1>;
 
   if (!events) return <h1>...Loading...</h1>;
@@ -65,6 +79,11 @@ export default function Home() {
 
   return (
     <>
+      {splash ? (
+        <Background>
+          <StyledImage src={logo} width={250} alt="app logo" />
+        </Background>
+      ) : null}
       {sortedEvents.map((event) => {
         return <EventCard key={event.id} event={event} />;
       })}
@@ -75,3 +94,41 @@ export default function Home() {
     </>
   );
 }
+
+const Background = styled.div`
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+
+  animation: moveout 0.5s;
+  animation-delay: 3s;
+
+  @keyframes moveout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+
+const StyledImage = styled(Image)`
+  animation: zoom 0.6s;
+
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+`;

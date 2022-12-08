@@ -17,7 +17,7 @@ function EditEvent() {
       method: "PATCH",
       body: JSON.stringify(event),
     });
-    router.push(`/events/${id}`);
+    router.back();
   }
 
   return (
