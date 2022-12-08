@@ -24,6 +24,15 @@ async function updatePlayerById(id, player) {
   return updatedPlayer;
 }
 
+async function deletePlayerById(id) {
+  connectToDatabase();
+
+  const player = await getPlayerById(id);
+  await Player.deleteOne({ id });
+
+  return player;
+}
+
 async function updatePlayersWhenEventDeleted(id) {
   await connectToDatabase();
 
@@ -48,4 +57,11 @@ async function createPlayer(player) {
   };
 }
 
-export { getAllPlayers, getPlayerById, updatePlayerById, updatePlayersWhenEventDeleted, createPlayer };
+export {
+  getAllPlayers,
+  getPlayerById,
+  updatePlayerById,
+  updatePlayersWhenEventDeleted,
+  createPlayer,
+  deletePlayerById,
+};

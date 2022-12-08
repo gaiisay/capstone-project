@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
-import DeleteEvent from "../../../components/DeleteEvent";
+import DeleteModal from "../../../components/DeleteModal";
 import PlayerAssignList from "../../../components/PlayerAssignList";
 import StyledLink from "../../../components/StyledLink";
 import Svg from "../../../components/Svg";
@@ -39,7 +39,7 @@ function EventDetails() {
   return (
     <>
       <Background />
-      <DeleteEvent deleteEvent={deleteEvent} />
+      <DeleteModal deleteItem={deleteEvent} />
       <Wrapper>
         <h2>{event.name}</h2>
         <p>
