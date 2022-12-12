@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Assist](https://user-images.githubusercontent.com/12039112/206998273-70385a73-608f-4669-b650-a4f9b5357d6a.png)
 
-## Getting Started
+# My Capstone Project: Assist - Team Manager
 
-First, run the development server:
+"Assist - Team Manager" is designed to make it easier for basketball coaches to manage their team and plan practices and games.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Demo:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can find the hosted version on [Vercel](https://capstone-project-gai.vercel.app/)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**Important the project is optimized for mobile screen.**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<img width="717" alt="image" src="https://user-images.githubusercontent.com/12039112/207027150-5f657358-5c83-4caa-9549-776ef6df76b2.png">
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Included Tech Stack
 
-## Learn More
+- React
+- React Testing Library / Jest
+- Next.js 
+- styled-components
+- Storybook
+- Node.js
+- Cloudinary
+- MongoDB Atlas
+- Mongoose
+- MUI
+- Zustand
+- SWR
 
-To learn more about Next.js, take a look at the following resources:
+## How to setup?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Clone this repository
+- Install all dependencies with `$ npm install`
+- create a Database on MongoDB and change the URI in the dbconnect.js 
+- insert your password for MongoDB as an enviroment variable
+- create a Cloudinary account and change the cloudname in the App.js 
+- insert your API_Key, API_Secret and Cloudname as an enviroment variable in the terminal
+- Run app in dev mode with `$ npm run dev`
+- Server: [http://localhost:3000/](http://localhost:3000/)
+- Run tests via `$ npm run test`
